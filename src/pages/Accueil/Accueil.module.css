@@ -158,6 +158,7 @@ h1 {
   margin: 120px;
   border-radius: 15px;
   background-size: cover;
+  background-image: url('./img/MMAPRO_Ouvrir-salon-coiffure_s.jpg');
 }
 .msgBienv{
   display: flex;

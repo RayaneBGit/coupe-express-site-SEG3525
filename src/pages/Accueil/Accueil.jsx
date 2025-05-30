@@ -44,7 +44,7 @@ export default function Accueil() {
       </div>
 
       <div className={styles.sectionBien}>
-        <div className="imgBienv" style={{ backgroundImage: "url('./img/MMAPRO_Ouvrir-salon-coiffure_s.jpg')" }}></div>
+        <div className="imgBienv"></div>
         <div className={styles.msgBienv}>
           <h2>BIENVENUE AU SALON BORÉAL</h2>
           <p>
