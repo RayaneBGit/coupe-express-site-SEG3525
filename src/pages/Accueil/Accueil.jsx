@@ -31,13 +31,13 @@ export default function Accueil() {
         <h1>- Notre offre de service -</h1>
         <br />
         <div className="service-container">
-          <div className="service" style={{ backgroundImage: "url('./img/im_image-entete.jpg')" }}>
+          <div className="service" >
             <h3>Coiffure & coupe de cheveux</h3>
           </div>
-          <div className="service" style={{ backgroundImage: "url('./img/im_image-entete.jpg')" }}>
+          <div className="service" >
             <h3>Coloration & balayage</h3>
           </div>
-          <div className="service" style={{ backgroundImage: "url('./img/im_image-entete.jpg')" }}>
+          <div className="service">
             <h3>Rallonges capillaires</h3>
           </div>
         </div>
