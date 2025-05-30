@@ -9,7 +9,7 @@ export default function App() {
     <Router>
       <nav style={{ background: '#eee', padding: '10px' }}>
         <Link to="/" style={{ margin: '0 30px' }}>Accueil</Link>
-        <Link to="/services" style={{ margin: '0 30px' }}>Services</Link>
+        <Link to="/services" style={{ margin: '0 30px' }}>Sersvitestces</Link>
         <Link to="/apropos" style={{ margin: '0 30px' }}>À propos</Link>
         <Link to="/contact" style={{ margin: '0 30px' }}>Contact</Link>
       </nav>
