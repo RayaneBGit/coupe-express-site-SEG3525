@@ -31,13 +31,13 @@ export default function Accueil() {
         <h1>- Notre offre de service -</h1>
         <br />
         <div className="service-container">
-          <div className="service" style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}>
+          <div className="service" style={{ backgroundImage: "url('./img/im_image-entete.jpg')" }}>
             <h3>Coiffure & coupe de cheveux</h3>
           </div>
-          <div className="service" style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}>
+          <div className="service" style={{ backgroundImage: "url('./img/im_image-entete.jpg')" }}>
             <h3>Coloration & balayage</h3>
           </div>
-          <div className="service" style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}>
+          <div className="service" style={{ backgroundImage: "url('./img/im_image-entete.jpg')" }}>
             <h3>Rallonges capillaires</h3>
           </div>
         </div>
@@ -59,34 +59,34 @@ export default function Accueil() {
       <div className={styles.sectionApropo} id="section3">
         <h1>- L’équipe du Salon Boréal -</h1>
         <br />
-        <div className="equipe-container">
+        <div className={styles.equipe-container}>
           <div className="equipe">
-            <img src="/img/equipe/anne.jpg" alt="Anne" />
+            <img src="./img/equipe/anne.jpg" alt="Anne" />
             <h3>Anne</h3>
             <p>Directrice du salon</p>
           </div>
           <div className="equipe">
-            <img src="/img/equipe/Audrey.jpg" alt="Audrey" />
+            <img src="./img/equipe/Audrey.jpg" alt="Audrey" />
             <h3>Audrey</h3>
             <p>Experte coupe & mèches</p>
           </div>
           <div className="equipe">
-            <img src="/img/equipe/Karim.jpg" alt="Karim" />
+            <img src="./img/equipe/Karim.jpg" alt="Karim" />
             <h3>Karim</h3>
             <p>Experte coupe & mèches</p>
           </div>
           <div className="equipe">
-            <img src="/img/equipe/cami.jpg" alt="Catherine" />
+            <img src="./img/equipe/cami.jpg" alt="Catherine" />
             <h3>Catherine</h3>
             <p>Experte coupe & mèches</p>
           </div>
           <div className="equipe">
-            <img src="/img/equipe/julie.jpg" alt="Julie" />
+            <img src="./img/equipe/julie.jpg" alt="Julie" />
             <h3>Julie</h3>
             <p>Experte coupe & mèches</p>
           </div>
           <div className="equipe">
-            <img src="/img/equipe/lucie.jpg" alt="Lucie" />
+            <img src="./img/equipe/lucie.jpg" alt="Lucie" />
             <h3>Lucie</h3>
             <p>Experte coupe & mèches</p>
           </div>
