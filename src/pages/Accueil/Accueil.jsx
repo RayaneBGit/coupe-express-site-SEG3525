@@ -59,7 +59,7 @@ export default function Accueil() {
       <div className={styles.sectionApropo} id="section3">
         <h1>- L’équipe du Salon Boréal -</h1>
         <br />
-        <div className={styles.equipe-container}>
+        <div className="equipe-container">
           <div className="equipe">
             <img src="/img/equipe/anne.jpg" alt="Anne" />
             <h3>Anne</h3>
