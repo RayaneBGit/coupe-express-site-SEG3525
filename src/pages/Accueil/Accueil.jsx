@@ -25,27 +25,27 @@ export default function Accueil() {
         </div>
       </nav>
 
-      <div className="sectionAcc" id="section1"></div>
+      <div className={styles.sectionAcc} id="section1"></div>
 
-      <div className="sectionService" id="section2">
+      <div className={styles.sectionService} id="section2">
         <h1>- Notre offre de service -</h1>
         <br />
-        <div className="service-container">
-          <div className="service" style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}>
+        <div className={styles.service-container}>
+          <div className={styles.service} style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}>
             <h3>Coiffure & coupe de cheveux</h3>
           </div>
-          <div className="service" style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}>
+          <div className={styles.service} style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}>
             <h3>Coloration & balayage</h3>
           </div>
-          <div className="service" style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}>
+          <div className={styles.service} style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}>
             <h3>Rallonges capillaires</h3>
           </div>
         </div>
       </div>
 
-      <div className="sectionBien">
-        <div className="imgBienv"></div>
-        <div className="msgBienv">
+      <div className={styles.sectionBien}>
+        <div className={styles.imgBienv}></div>
+        <div className={styles.msgBienv}>
           <h2>BIENVENUE AU SALON BORÉAL</h2>
           <p>
             Venez vivre une expérience de coiffure haute gamme avec des produits capillaires luxueux!
@@ -56,36 +56,36 @@ export default function Accueil() {
         </div>
       </div>
 
-      <div className="sectionApropo" id="section3">
+      <div className={styles.sectionApropo} id="section3">
         <h1>- L’équipe du Salon Boréal -</h1>
         <br />
-        <div className="equipe-container">
-          <div className="equipe">
+        <div className={styles.equipe-container}>
+          <div className={styles.equipe}>
             <img src="/img/equipe/anne.jpg" alt="Anne" />
             <h3>Anne</h3>
             <p>Directrice du salon</p>
           </div>
-          <div className="equipe">
+          <div className={styles.equipe}>
             <img src="/img/equipe/Audrey.jpg" alt="Audrey" />
             <h3>Audrey</h3>
             <p>Experte coupe & mèches</p>
           </div>
-          <div className="equipe">
+          <div className={styles.equipe}>
             <img src="/img/equipe/Karim.jpg" alt="Karim" />
             <h3>Karim</h3>
             <p>Experte coupe & mèches</p>
           </div>
-          <div className="equipe">
+          <div className={styles.equipe}>
             <img src="/img/equipe/cami.jpg" alt="Catherine" />
             <h3>Catherine</h3>
             <p>Experte coupe & mèches</p>
           </div>
-          <div className="equipe">
+          <div className={styles.equipe}>
             <img src="/img/equipe/julie.jpg" alt="Julie" />
             <h3>Julie</h3>
             <p>Experte coupe & mèches</p>
           </div>
-          <div className="equipe">
+          <div className={styles.equipe}>
             <img src="/img/equipe/lucie.jpg" alt="Lucie" />
             <h3>Lucie</h3>
             <p>Experte coupe & mèches</p>
@@ -93,14 +93,14 @@ export default function Accueil() {
         </div>
       </div>
 
-      <footer className="footer" id="footer">
-        <div className="footer-container">
-          <div className="footer-text">
+      <footer className={styles.footer} id="footer">
+        <div className={styles.footer-container}>
+          <div className={styles.footer-text}>
             <h3>Gardons le contact.</h3>
             <p>...</p>
           </div>
         </div>
-        <div className="footer-bottom">
+        <div className={styles.footer-bottom}>
           &copy; 2025 Boréal | Tous droits réservés
         </div>
       </footer>
