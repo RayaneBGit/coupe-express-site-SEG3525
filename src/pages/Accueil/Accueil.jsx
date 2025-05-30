@@ -1,9 +1,10 @@
 
+import styles from "./Accueil.module.css"
 
 export default function Accueil() {
   return (
     <div>
-      <nav className="menubar">
+      <nav className={styles.menubar}>
         <a href="#">
           <img className="logoMenu" src="/logo192.png" alt="Logo" />
         </a>
@@ -14,7 +15,7 @@ export default function Accueil() {
           <div></div>
         </div>
 
-        <div className="navMenu" id="navMenu">
+        <div className={styles.navMenu} id="navMenu">
           <ul>
             <li><a href="#section1">Accueil</a></li>
             <li><a href="#section2">Service</a></li>

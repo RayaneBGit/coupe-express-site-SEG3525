@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  background-color: aquamarine;
+  background-color: rgb(255, 255, 255);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -13,4 +13,16 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.menubar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 30px;
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
 }
