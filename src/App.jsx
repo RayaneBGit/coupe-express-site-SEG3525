@@ -1,112 +1,25 @@
-import React from "react";
-import "./App.css";
-import "./index.css";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Accueil from './pages/Accueil';
+import Apropos from './pages/Apropos';
+import Services from './pages/Services';
+import Contact from './pages/Contact';
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <nav className="menubar">
-        <a href="#">
-          <img className="logoMenu" src="/logo192.png" alt="Logo" />
-        </a>
-
-        <div className="burger" id="burger">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-
-        <div className="navMenu" id="navMenu">
-          <ul>
-            <li><a href="#section1">Accueil</a></li>
-            <li><a href="#section2">Service</a></li>
-            <li><a href="#section3">À propos</a></li>
-            <li><a href="#section4">Prendre rendez vous</a></li>
-          </ul>
-        </div>
+    <Router>
+      <nav style={{ background: '#eee', padding: '10px' }}>
+        <Link to="/" style={{ margin: '0 30px' }}>Accueil</Link>
+        <Link to="/services" style={{ margin: '0 30px' }}>Services</Link>
+        <Link to="/apropos" style={{ margin: '0 30px' }}>À propos</Link>
+        <Link to="/contact" style={{ margin: '0 30px' }}>Contact</Link>
       </nav>
 
-      <div className="sectionAcc" id="section1"></div>
-
-      <div className="sectionService" id="section2">
-        <h1>- Notre offre de service -</h1>
-        <br />
-        <div className="service-container">
-          <div className="service" style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}>
-            <h3>Coiffure & coupe de cheveux</h3>
-          </div>
-          <div className="service" style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}>
-            <h3>Coloration & balayage</h3>
-          </div>
-          <div className="service" style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}>
-            <h3>Rallonges capillaires</h3>
-          </div>
-        </div>
-      </div>
-
-      <div className="sectionBien">
-        <div className="imgBienv"></div>
-        <div className="msgBienv">
-          <h2>BIENVENUE AU SALON BORÉAL</h2>
-          <p>
-            Venez vivre une expérience de coiffure haute gamme avec des produits capillaires luxueux!
-            Nous sommes toujours à votre service afin de vous transmettre nos connaissances et notre expérience.
-            L'Estime et la confiance en soi commencent toujours par notre reflet dans la glace.
-            Ne sous-estimez pas le pouvoir d'une belle chevelure! Votre style, notre passion!
-          </p>
-        </div>
-      </div>
-
-      <div className="sectionApropo" id="section3">
-        <h1>- L’équipe du Salon Boréal -</h1>
-        <br />
-        <div className="equipe-container">
-          <div className="equipe">
-            <img src="/img/equipe/anne.jpg" alt="Anne" />
-            <h3>Anne</h3>
-            <p>Directrice du salon</p>
-          </div>
-          <div className="equipe">
-            <img src="/img/equipe/Audrey.jpg" alt="Audrey" />
-            <h3>Audrey</h3>
-            <p>Experte coupe & mèches</p>
-          </div>
-          <div className="equipe">
-            <img src="/img/equipe/Karim.jpg" alt="Karim" />
-            <h3>Karim</h3>
-            <p>Experte coupe & mèches</p>
-          </div>
-          <div className="equipe">
-            <img src="/img/equipe/cami.jpg" alt="Catherine" />
-            <h3>Catherine</h3>
-            <p>Experte coupe & mèches</p>
-          </div>
-          <div className="equipe">
-            <img src="/img/equipe/julie.jpg" alt="Julie" />
-            <h3>Julie</h3>
-            <p>Experte coupe & mèches</p>
-          </div>
-          <div className="equipe">
-            <img src="/img/equipe/lucie.jpg" alt="Lucie" />
-            <h3>Lucie</h3>
-            <p>Experte coupe & mèches</p>
-          </div>
-        </div>
-      </div>
-
-      <footer className="footer" id="footer">
-        <div className="footer-container">
-          <div className="footer-text">
-            <h3>Gardons le contact.</h3>
-            <p>...</p>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          &copy; 2025 Boréal | Tous droits réservés
-        </div>
-      </footer>
-    </div>
+      <Routes>
+        <Route path="/" element={<Accueil />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/apropos" element={<Apropos />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
