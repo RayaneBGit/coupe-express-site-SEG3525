@@ -133,9 +133,9 @@ h1 {
   margin-left: 5px;
   fill: currentColor;
 }
-/*
+
 .sectionAcc {
-  background-image: url('./img/AvenNB.jpg');
+  /*background-image: url('./img/AvenNB.jpg');*/
   background-color: rgb(0, 0, 0);
   background-size: cover;
   color: rgb(255, 255, 255);
@@ -145,7 +145,7 @@ h1 {
   overflow: hidden;
   position: relative;
 
-}*/
+}
 .sectionBien{
   display: flex;
   align-items: center;
