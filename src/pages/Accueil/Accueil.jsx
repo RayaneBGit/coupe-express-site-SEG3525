@@ -25,7 +25,7 @@ export default function Accueil() {
         </div>
       </nav>
 
-      <div className={styles.sectionAcc} id="section1"></div>
+      <div className={styles.sectionAcc} style={{ backgroundImage: "url('./img/MMAPRO_Ouvrir-salon-coiffure_s.jpg')" }} id="section1"></div>
 
       <div className="sectionService" id="section2">
         <h1>- Notre offre de service -</h1>
@@ -44,7 +44,7 @@ export default function Accueil() {
       </div>
 
       <div className={styles.sectionBien}>
-        <div className="imgBienv"></div>
+        <div className="imgBienv" style={{ backgroundImage: "url('./img/MMAPRO_Ouvrir-salon-coiffure_s.jpg')" }}></div>
         <div className={styles.msgBienv}>
           <h2>BIENVENUE AU SALON BORÉAL</h2>
           <p>
