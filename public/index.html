@@ -1,178 +1,43 @@
-
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Salon</title>
-  <link rel="icon" type="image/x-icon" href="img/logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="index.css" />
-</head>
-<body>
-  <nav class="menubar">
-    <a href="#"><img class="logoMenu" src="img/logo.png" alt="Logo"></a>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-    <div class="burger" id="burger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-    <div class="navMenu" id="navMenu">
-      <ul>
-        <li><a href="#section1">Accueil</a></li>
-        <li><a href="#section2">Service</a></li>
-        <li><a href="#section3">À propos</a></li>
-        <li><a href="#section4">Prendre rendez vous</a></li>
-      </ul>
-    </div>
-  </nav>
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-  <div class="sectionAcc" id="section1">
-  </div>
-  <div class="sectionService" id="section2">
-  <h1>- Notre offre de service -</h1>
-  <br>
-  <div class="service-container">
-
-    <!-- Coiffure & coupe de cheveux -->
-    <div class="service" style="background-image: url('img/im_image-entete.jpg');">
-      <h3>Coiffure & coupe de cheveux</h3>
-    </div>
-
-    <!-- Coloration & balayage -->
-    <div class="service" style="background-image: url('img/im_image-entete.jpg');">
-      <h3>Coloration & balayage</h3>
-    </div>
-
-    <!-- Rallonges capillaires -->
-    <div class="service" style="background-image: url('img/im_image-entete.jpg');">
-      <h3>Rallonges capillaires</h3>
-    </div>
-
-  </div>
-</div>
-
-  <div class="sectionBien">
-    <div class="imgBienv"></div>
-    <div class="msgBienv">
-      <h2>BIENVENUE AU SALON BORÉAL</h2>
-      <p>Venez vivre une expérience de coiffure haute gamme avec des produits capillaires luxueux!  Nous sommes toujours à votre service afin de vous transmettre nos connaissances et notre expérience.  L'Estime et la confiance en soi commencent toujours par notre reflet dans la glace.  Ne sous-estimez pas le pouvoir d'une belle chevelure!  Votre style, notre passion!</p>
-    </div>
-    
-  </div>
-  <div class="sectionApropo" id="section3">
-    <h1>- L’équipe du Salon Boréal -</h1><br>
-    <div class="equipe-container">
-
-        <!-- Anne -->
-        <div class="equipe">
-          <img src="img/equipe/anne.jpg" alt="Devoir1">
-          <h3>Anne</h3>
-          <p>Directrice du salon</p>
-        </div>
-        
-        <!-- Audrey -->
-        <div class="equipe">
-          <img src="img/equipe/Audrey.jpg" alt="Devoir">
-          <h3>Audrey</h3>
-          <p>Experte coupe & mèches</p>
-        </div>
-        
-        <!-- Karim -->
-        <div class="equipe">
-          <img src="img/equipe/Karim.jpg" alt="Devoir">
-          <h3>Karim</h3>
-          <p>Experte coupe & mèches</p>
-        </div>
-        <!-- Catherine -->
-        <div class="equipe">
-          <img src="img/equipe/cami.jpg" alt="Devoir">
-          <h3>Catherine</h3>
-          <p>Experte coupe & mèches</p>
-        </div>
-        <!-- Julie -->
-        <div class="equipe">
-          <img src="img/equipe/julie.jpg" alt="Devoir">
-          <h3>Julie</h3>
-          <p>Experte coupe & mèches</p>
-        </div>
-        <!-- Lucie -->
-        <div class="equipe">
-          <img src="img/equipe/lucie.jpg" alt="Devoir">
-          <h3>Lucie</h3>
-          <p>Experte coupe & mèches</p>
-        </div>
-      </div>
-  </div>
-  
- <!-- Pied de page avec les infos et liens utiles -->
-  <footer class="footer" id="footer">
-    <div class="footer-container">
-      <div class="footer-text">
-        <h3>Gardons le contact.</h3>
-        <p>...</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      &copy; 2025 Boréal | Tous droits réservés
-    </div>
-  </footer>
-
-  <script>
-    const burger = document.getElementById("burger");
-    const navMenu = document.getElementById("navMenu");
-
-    burger.addEventListener("click", (e) => {
-      navMenu.classList.toggle("open");
-      e.stopPropagation();
-    });
-
-    // Fermer le menu quand on clique ailleur
-    document.addEventListener("click", (e) => {
-      if (navMenu.classList.contains("open")) {
-        navMenu.classList.remove("open");
-      }
-    });
-
-    navMenu.addEventListener("click", (e) => {
-      e.stopPropagation();
-    });
-
-    const links = navMenu.querySelectorAll("a");
-    links.forEach(link => {
-      link.addEventListener("click", () => {
-        navMenu.classList.remove("open");
-      });
-    });
-
-    // cacher le menu quand on scroll
-    let lastScroll = 0;
-    const menubar = document.querySelector(".menubar");
-    const logoMenu = document.querySelector(".logoMenu");
-
-    window.addEventListener("scroll", () => {
-      let current = window.scrollY;
-      menubar.style.transition = "top 0.3s, background-color 0.3s";
-      if (current === 0) {
-    
-        menubar.style.top = "0";
-        menubar.style.backgroundColor = "transparent";
-        logoMenu.style.display = "none"; 
-      } 
-      else if (current > lastScroll) {
-        menubar.style.top = "-100px";
-      } 
-      else {
-        menubar.style.top = "0";
-        menubar.style.backgroundColor = "#fdecdd";
-        logoMenu.style.display = "block";
-      }
-      lastScroll = current;
-
-    });
-   
-  </script>
-</body>
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
 </html>
