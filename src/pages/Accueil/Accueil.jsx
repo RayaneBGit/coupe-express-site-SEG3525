@@ -1,7 +1,20 @@
 
 import styles from "./Accueil.module.css"
-
+import img from "./img/AventNB.jpg"
 export default function Accueil() {
+
+  const StyleApp = {
+  backgroundImage: `url(${img})`,
+  backgroundColor: "rgb(0, 0, 0)",
+  backgroundSize:"cover",
+  color: "rgb(255, 255, 255)",
+  fontSize: "15px",
+  width: "100%",
+  height: "130vh",
+  overflow: "hidden",
+  position: "relative",
+
+}
   return (
     <div>
       <nav className={styles.menubar}>
@@ -25,19 +38,19 @@ export default function Accueil() {
         </div>
       </nav>
 
-      <div className={styles.sectionAcc} id="section1"></div>
+      <div style={StyleApp} id="section1"></div>
 
       <div className="sectionService" id="section2">
         <h1>- Notre offre de service -</h1>
         <br />
         <div className="service-container">
-          <div className="service" >
+          <div className="service" style={{ backgroundImage: "url('./img/im_image-entete.jpg')" }}>
             <h3>Coiffure & coupe de cheveux</h3>
           </div>
-          <div className="service" >
+          <div className="service" style={{ backgroundImage: "url('./img/im_image-entete.jpg')" }}>
             <h3>Coloration & balayage</h3>
           </div>
-          <div className="service">
+          <div className="service" style={{ backgroundImage: "url('./img/im_image-entete.jpg')" }}>
             <h3>Rallonges capillaires</h3>
           </div>
         </div>
