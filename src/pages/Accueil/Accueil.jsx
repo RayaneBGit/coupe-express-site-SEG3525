@@ -43,9 +43,9 @@ export default function Accueil() {
         </div>
       </div>
 
-      <div className="sectionBien">
+      <div className={styles.sectionBien}>
         <div className="imgBienv"></div>
-        <div className="msgBienv">
+        <div className={styles.msgBienv}>
           <h2>BIENVENUE AU SALON BORÉAL</h2>
           <p>
             Venez vivre une expérience de coiffure haute gamme avec des produits capillaires luxueux!
@@ -56,7 +56,7 @@ export default function Accueil() {
         </div>
       </div>
 
-      <div className="sectionApropo" id="section3">
+      <div className={styles.sectionApropo} id="section3">
         <h1>- L’équipe du Salon Boréal -</h1>
         <br />
         <div className="equipe-container">
@@ -93,7 +93,7 @@ export default function Accueil() {
         </div>
       </div>
 
-      <footer className="footer" id="footer">
+      <footer className={styles.footer} id="footer">
         <div className="footer-container">
           <div className="footer-text">
             <h3>Gardons le contact.</h3>
