@@ -1,7 +1,7 @@
 
 import styles from "./Accueil.module.css"
 
-export default function Accueil() {
+function Accueil() {
   return (
     <div>
       <nav className={styles.menubar}>
