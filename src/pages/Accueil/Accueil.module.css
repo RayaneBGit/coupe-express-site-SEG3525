@@ -90,7 +90,7 @@ h1 {
 }
 
 .sectionAcc {
-  background-image: url('/img/AvenNB.jpg');
+  /*background-image: url('img/AvenNB.jpg');*/
   background-color: rgb(0, 0, 0);
   background-size: cover;
   color: rgb(255, 255, 255);
@@ -99,13 +99,8 @@ h1 {
   height: 130vh;
   overflow: hidden;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
+}
 .sectionBien{
   display: flex;
   align-items: center;

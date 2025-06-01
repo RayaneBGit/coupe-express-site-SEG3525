@@ -4,6 +4,7 @@ import Apropos from './pages/Apropos';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Menu from './components/Menu';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -18,6 +19,8 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
+
+      <Footer />
     </Router>
   );
 }
