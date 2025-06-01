@@ -1,0 +1,48 @@
+.menubar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 30px;
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  background-color: white;
+}
+
+.logoMenu {
+  display: none;
+  height: 90px;
+}
+
+.navMenu ul {
+  list-style: none;
+  display: flex;
+  gap: 80px;
+  margin: 0;
+  margin-right: 30px;
+  padding: 0;
+}
+
+.navMenu ul li a {
+  text-decoration: none;
+  color: #473729;
+  font-weight: bold;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background: rgb(0, 0, 0);
+}
+.open {
+  display: block;
+}
