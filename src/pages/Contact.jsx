@@ -30,7 +30,7 @@ export default function Contact() {
     const selectedDate = new Date(e.target.value);
     const day = selectedDate.getUTCDay();
     if (day === 0) {
-      alert("Le salon est fermé le dimanche.");
+      alert("Le salon est fermé le dimanche. Veuillez choisir un autre jour.");
       e.target.value = '';
       return;
     }
@@ -74,77 +74,94 @@ export default function Contact() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Prendre un rendez-vous</h2>
-      <form onSubmit={handleSubmit}>
-        {['nom', 'email', 'tel', 'date', 'heure', 'service', 'message'].map((field) => (
-          <div key={field} className={styles.formGroup}>
-            <label htmlFor={field} className={styles.label}>
-              {field === 'nom' && 'Nom complet'}
-              {field === 'email' && 'Adresse e-mail'}
-              {field === 'tel' && 'Téléphone'}
-              {field === 'date' && 'Date du rendez-vous'}
-              {field === 'heure' && 'Heure'}
-              {field === 'service' && 'Service souhaité'}
-              {field === 'message' && 'Message (facultatif)'}
-            </label>
-            {field === 'heure' ? (
-              <select
-                name="heure"
-                value={formData.heure}
-                onChange={handleChange}
-                className={errors.heure ? styles.inputError : styles.input}
-              >
-                <option value="">-- Sélectionnez une heure --</option>
-                {heures.map((h) => (
-                  <option key={h} value={h}>{h}</option>
-                ))}
-              </select>
-            ) : field === 'service' ? (
-              <select
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                className={errors.service ? styles.inputError : styles.input}
-              >
-                <option value="">-- Sélectionnez un service --</option>
-                <option value="coupe">Coupe</option>
-                <option value="coloration">Coloration</option>
-                <option value="brushing">Brushing</option>
-                <option value="soin">Soin capillaire</option>
-              </select>
-            ) : field === 'message' ? (
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows="4"
-                className={styles.input}
-              ></textarea>
-            ) : (
-              <input
-                type={field === 'email' ? 'email' : field === 'tel' ? 'tel' : field === 'date' ? 'date' : 'text'}
-                name={field}
-                value={formData[field]}
-                onChange={field === 'date' ? handleDateChange : handleChange}
-                className={errors[field] ? styles.inputError : styles.input}
-              />
-            )}
-            {errors[field] && (
-              <div className={styles.error}>{errors[field]}</div>
-            )}
-          </div>
-        ))}
+      <div className={styles.logo}>Salon Boréal</div>
 
-        <button type="submit" className={styles.button}>
-          Envoyer
-        </button>
-      </form>
-
-      {confirmationVisible && (
-        <div className={styles.confirmation}>
-          Vous avez réservé. Une confirmation vous sera envoyée par courriel.
+      <div className={styles.contentWrapper}>
+        <div className={styles.infoSection}>
+          <h2 className={styles.infoTitle}>Nos informations</h2>
+          <p><strong>Téléphone:</strong> 514-123-4567</p>
+          <p><strong>Adresse:</strong> 123 rue des Coiffeurs, Montréal, QC</p>
+          <p><strong>Email:</strong> contact@boreal.ca</p>
         </div>
-      )}
+
+        <div className={styles.formSection}>
+          <h2 className={styles.title}>Prendre un rendez-vous</h2>
+          <form onSubmit={handleSubmit}>
+            {['nom', 'email', 'tel', 'date', 'heure', 'service', 'message'].map((field) => (
+              <div key={field} className={styles.formGroup}>
+                <label htmlFor={field} className={styles.label}>
+                  {field === 'nom' && 'Nom complet'}
+                  {field === 'email' && 'Adresse e-mail'}
+                  {field === 'tel' && 'Téléphone'}
+                  {field === 'date' && 'Date du rendez-vous'}
+                  {field === 'heure' && 'Heure'}
+                  {field === 'service' && 'Service souhaité'}
+                  {field === 'message' && 'Message (facultatif)'}
+                </label>
+                {field === 'heure' ? (
+                  <select
+                    name="heure"
+                    value={formData.heure}
+                    onChange={handleChange}
+                    className={errors.heure ? styles.inputError : styles.input}
+                  >
+                    <option value="">-- Sélectionnez une heure --</option>
+                    {heures.map((h) => (
+                      <option key={h} value={h}>{h}</option>
+                    ))}
+                  </select>
+                ) : field === 'service' ? (
+                  <select
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className={errors.service ? styles.inputError : styles.input}
+                  >
+                    <option value="">-- Sélectionnez un service --</option>
+                    <option value="coupe">Coupe</option>
+                    <option value="coloration">Coloration</option>
+                    <option value="brushing">Brushing</option>
+                    <option value="soin">Soin capillaire</option>
+                  </select>
+                ) : field === 'message' ? (
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows="4"
+                    className={styles.input}
+                  ></textarea>
+                ) : (
+                  <input
+                    type={field === 'email' ? 'email' : field === 'tel' ? 'tel' : field === 'date' ? 'date' : 'text'}
+                    name={field}
+                    value={formData[field]}
+                    onChange={field === 'date' ? handleDateChange : handleChange}
+                    className={errors[field] ? styles.inputError : styles.input}
+                  />
+                )}
+                {errors[field] && (
+                  <div className={styles.error}>{errors[field]}</div>
+                )}
+              </div>
+            ))}
+
+            <button type="submit" className={styles.button}>
+              Envoyer
+            </button>
+          </form>
+
+          {confirmationVisible && (
+            <div className={styles.confirmation}>
+              Vous avez réservé. Une confirmation vous sera envoyée par courriel.
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className={styles.footer}>
+        &copy; 2025 Mon Salon - Tous droits réservés.
+      </div>
     </div>
   );
-}
+} 
