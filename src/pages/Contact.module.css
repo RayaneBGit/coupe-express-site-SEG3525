@@ -14,7 +14,6 @@
   flex-direction: row;
   gap: 2rem;
   width: 100%;
-  max-width: 900px;
 }
 
 .infoSection {
@@ -27,7 +26,7 @@
 
 .formSection {
   flex: 2;
-  background-color: #ffffff;
+  background-color: #fff8ef;
   padding: 1.5rem;
   border-radius: 10px;
   width: 50%;
