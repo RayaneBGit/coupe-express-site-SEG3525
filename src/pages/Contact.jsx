@@ -74,9 +74,8 @@ export default function Contact() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.logo}>Salon Boréal</div>
 
-      <div className={styles.contentWrapper}>
+      <div className={styles.content}>
         <div className={styles.infoSection}>
           <h2 className={styles.infoTitle}>Nos informations</h2>
           <p><strong>Téléphone:</strong> 514-123-4567</p>
@@ -157,10 +156,6 @@ export default function Contact() {
             </div>
           )}
         </div>
-      </div>
-
-      <div className={styles.footer}>
-        &copy; 2025 Mon Salon - Tous droits réservés.
       </div>
     </div>
   );

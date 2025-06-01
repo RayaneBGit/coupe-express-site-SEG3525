@@ -1,18 +1,11 @@
 .container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   padding: 2rem;
+  margin-top: 100px;
   font-family: sans-serif;
   background-color: #f7f7f7;
   min-height: 100vh;
-}
-
-.header {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  text-align: center;
 }
 
 .content {
@@ -23,7 +16,7 @@
   max-width: 900px;
 }
 
-.info {
+.infoSection {
   flex: 1;
   background-color: #ffffff;
   padding: 1.5rem;
@@ -90,10 +83,4 @@
   margin-top: 1rem;
   color: green;
   font-weight: bold;
-}
-
-.footer {
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  color: #666;
 }
