@@ -37,7 +37,7 @@ export default function Menu() {
       if (current === 0) {
         menubar.style.top = '0';
         menubar.style.backgroundColor = 'transparent';
-        logoMenu.style.display = 'none';
+        logoMenu.style.display = 'block';
       } else if (current > lastScroll) {
         menubar.style.top = '-100px';
       } else {
