@@ -1,10 +1,21 @@
 import styles from "./Accueil.module.css";
+import backgroundImage from './AvenNB.jpg';
+
 
 export default function Accueil() {
   return (
     <div>
       {/* Section Accueil */}
-      <div className={styles.sectionAcc} id="section1"></div>
+      <div
+      className={styles.sectionAcc}
+      id="section1"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        height: '100vh',
+      }}
+    ></div>
 
       {/* Section Services */}
       <div className={styles.sectionService} id="section2">
