@@ -77,7 +77,7 @@ export default function Contact() {
 
       <div className={styles.content}>
         <div className={styles.infoSection}>
-          <img className={styles.logo} src="/img/logo.png" alt="Anne" />
+         
           <h2 className={styles.infoTitle}>Nos informations</h2>
           <p><strong>Téléphone:</strong> 514-123-4567</p>
           <p><strong>Adresse:</strong> 123 rue des Coiffeurs, Montréal, QC</p>
