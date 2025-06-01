@@ -46,3 +46,27 @@
 .open {
   display: block;
 }
+@media (max-width: 768px) {
+  .navMenu {
+    display: none;
+    width: 100%;
+    background: #1a1a1a;
+    position: absolute;
+    top: 70px;
+    left: 0;
+  }
+
+  .navMenu.open {
+    display: block;
+  }
+
+  .navMenu ul {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
