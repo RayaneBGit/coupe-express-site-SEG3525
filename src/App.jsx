@@ -10,7 +10,7 @@ export default function App() {
     <Router>
       <Menu />
 
-      <div style={{ paddingTop: '70px' }}>
+      <div>
         <Routes>
           <Route path="/" element={<Accueil />} />
           <Route path="/services" element={<Services />} />
