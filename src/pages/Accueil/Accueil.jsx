@@ -1,21 +1,11 @@
 import styles from "./Accueil.module.css";
-import backgroundImage from './AvenNB.jpg';
 
 
 export default function Accueil() {
   return (
     <div>
       {/* Section Accueil */}
-      <div
-      className={styles.sectionAcc}
-      id="section1"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '100vh',
-      }}
-    ></div>
+      <div className={styles.sectionAcc} id="section1"></div>
 
       {/* Section Services */}
       <div className={styles.sectionService} id="section2">
@@ -24,19 +14,19 @@ export default function Accueil() {
         <div className={styles.serviceContainer}>
           <div
             className={styles.service}
-            style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}
+            style={{ backgroundImage: "url('/img/salon-de-coiffure-eco-responsable.jpg')" }}
           >
             <h3>Coiffure & coupe de cheveux</h3>
           </div>
           <div
             className={styles.service}
-            style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}
+            style={{ backgroundImage: "url('/img/salon-de-coiffure-eco-responsable.jpg')" }}
           >
             <h3>Coloration & balayage</h3>
           </div>
           <div
             className={styles.service}
-            style={{ backgroundImage: "url('/img/im_image-entete.jpg')" }}
+            style={{ backgroundImage: "url('/img/salon-de-coiffure-eco-responsable.jpg')" }}
           >
             <h3>Rallonges capillaires</h3>
           </div>
@@ -45,7 +35,7 @@ export default function Accueil() {
 
       {/* Section Bienvenue */}
       <div className={styles.sectionBien}>
-        <div className={styles.imgBienv}></div>
+        <div className={styles.imgBienv} style={{ backgroundImage: "url('/img/salon-de-coiffure-eco-responsable.jpg')"}}></div>
         <div className={styles.msgBienv}>
           <h2>BIENVENUE AU SALON BORÉAL</h2>
           <p>
