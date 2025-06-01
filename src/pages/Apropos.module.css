@@ -1,3 +1,31 @@
+
+.sectionBien {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+}
+
+.imgBienv {
+  width: 20%;
+  height: 100%;
+  padding: 14%;
+  margin: 120px;
+  border-radius: 15px;
+  background-size: cover;
+}
+
+.msgBienv {
+  display: flex;
+  padding-right: 2%;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  font-size: 1.8rem;
+  color: #473729;
+  width: 80%;
+  height: 100%;
+}
+
 .sectionApropo {
   justify-content: center;
   align-items: center;
@@ -8,7 +36,7 @@
   padding-bottom: 140px;
 }
 
-.equipe-container {
+.equipeContainer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
