@@ -47,27 +47,52 @@ export default function Accueil() {
         </div>
       </div>
 
-      {/* Section À propos */}
+      {/* Section À propos – L’équipe du salon */}
       <div className={styles.sectionApropo} id="section3">
         <h1>- L’équipe du Salon Boréal -</h1>
         <br />
+
+        {/* Conteneur de l’équipe */}
         <div className={styles.equipeContainer}>
-          {[
-            { src: "anne.jpg", nom: "Anne", role: "Directrice du salon" },
-            { src: "Audrey.jpg", nom: "Audrey", role: "Experte coupe & mèches" },
-            { src: "Karim.jpg", nom: "Karim", role: "Expert coupe & mèches" },
-            { src: "cami.jpg", nom: "Catherine", role: "Experte coupe & mèches" },
-            { src: "julie.jpg", nom: "Julie", role: "Experte coupe & mèches" },
-            { src: "lucie.jpg", nom: "Lucie", role: "Experte coupe & mèches" },
-          ].map((personne, index) => (
-            <div className={styles.equipe} key={index}>
-              <img src={`/img/equipe/${personne.src}`} alt={personne.nom} />
-              <h3>{personne.nom}</h3>
-              <p>{personne.role}</p>
-            </div>
-          ))}
+          {/* Chaque personne de l’équipe */}
+          <div className={styles.equipe}>
+            <img src="/img/equipe/anne.jpg" alt="Anne" />
+            <h3>Anne</h3>
+            <p>Directrice du salon</p>
+          </div>
+
+          <div className={styles.equipe}>
+            <img src="/img/equipe/Audrey.jpg" alt="Audrey" />
+            <h3>Audrey</h3>
+            <p>Experte coupe & mèches</p>
+          </div>
+
+          <div className={styles.equipe}>
+            <img src="/img/equipe/Karim.jpg" alt="Karim" />
+            <h3>Karim</h3>
+            <p>Expert coupe & mèches</p>
+          </div>
+
+          <div className={styles.equipe}>
+            <img src="/img/equipe/cami.jpg" alt="Catherine" />
+            <h3>Catherine</h3>
+            <p>Experte coupe & mèches</p>
+          </div>
+
+          <div className={styles.equipe}>
+            <img src="/img/equipe/julie.jpg" alt="Julie" />
+            <h3>Julie</h3>
+            <p>Experte coupe & mèches</p>
+          </div>
+
+          <div className={styles.equipe}>
+            <img src="/img/equipe/lucie.jpg" alt="Lucie" />
+            <h3>Lucie</h3>
+            <p>Experte coupe & mèches</p>
+          </div>
         </div>
       </div>
+
     </div>
   );
 }
