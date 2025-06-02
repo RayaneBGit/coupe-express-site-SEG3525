@@ -50,13 +50,16 @@
   margin-bottom: 0.5rem;
 }
 
-.input, .inputError, textarea, select {
+.input select,
+.inputError select,
+.input textarea,
+.inputError textarea {
   width: 100%;
   padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: none;
   font-size: 1rem;
 }
+
 
 .inputError {
   border-color: red;
