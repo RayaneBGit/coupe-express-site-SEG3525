@@ -28,14 +28,24 @@ export default function Contact() {
 
   const handleDateChange = (e) => {
     const selectedDate = new Date(e.target.value);
-    const day = selectedDate.getUTCDay();
-    if (day === 0) {
-      alert("Le salon est fermé le dimanche. Veuillez choisir un autre jour.");
-      e.target.value = '';
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // on ignore l'heure
+
+    if (selectedDate < today) {
+      setErrors(prev => ({ ...prev, date: "La date sélectionnée est déjà passée." }));
       return;
     }
+
+    const day = selectedDate.getUTCDay();
+    if (day === 0) {
+      setErrors(prev => ({ ...prev, date: "Le salon est fermé le dimanche. Veuillez choisir un autre jour." }));
+      return;
+    }
+
+    setErrors(prev => ({ ...prev, date: '' }));
     handleChange(e);
   };
+
 
   const validate = () => {
     const champs = {
@@ -70,6 +80,7 @@ export default function Contact() {
       });
       setConfirmationVisible(true);
     }
+    
   };
 
   return (
