@@ -100,17 +100,28 @@ const Contact = () => {
     if (validateStep1()) setStep(2);
   };
 
-  const handleSubmitStep2 = () => {
+  const handleSubmitStep2 = async () => {
     if (!validateStep2()) return;
-    setReservations((prev) => {
-      const updated = { ...prev };
-      if (!updated[selectedDate]) updated[selectedDate] = {};
-      if (!updated[selectedDate][coiffeur]) updated[selectedDate][coiffeur] = [];
-      updated[selectedDate][coiffeur].push(heure);
-      return updated;
-    });
-    setStep(3);
+
+    try {
+      await fetch('http://localhost:3001/reservations', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ date: selectedDate, coiffeur, heure })
+      });
+
+      setStep(3);
+    } catch (err) {
+      alert("Erreur lors de la réservation. Veuillez réessayer.");
+    }
   };
+  useEffect(() => {
+    fetch('http://localhost:3001/reservations')
+      .then(res => res.json())
+      .then(data => setReservations(data))
+      .catch(err => console.error("Erreur chargement réservations", err));
+  }, []);
+
 
   const monthYearLabel = new Date(currentYear, currentMonth).toLocaleString("fr-FR", {
     month: "long",
