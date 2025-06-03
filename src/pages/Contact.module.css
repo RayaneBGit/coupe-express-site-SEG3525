@@ -7,12 +7,17 @@
 .container {
   background: white;
   padding: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-top: 100px;
   margin-bottom: 100px;
   border-radius: 10px;
   max-width: 600px;
   width: 100%;
   font-family: Arial, sans-serif;
+}
+p{
+  font-size: 1em;
 }
 body{
   background-color: #fff8f0;
