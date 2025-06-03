@@ -1,7 +1,3 @@
-import { db } from "../../server/firebase";
-import { getDocs, query, where, collection, addDoc } from "firebase/firestore";
-
-
 import React, { useState } from "react";
 import styles from "./Contact.module.css";
 
@@ -36,33 +32,15 @@ const Contact = () => {
     return slots;
   };
 
-  const updateHeures = async () => {
-    if (!selectedDate || !coiffeur) return getTimeSlots();
-
-    const q = query(
-      collection(db, "reservations"),
-      where("date", "==", selectedDate),
-      where("coiffeur", "==", coiffeur)
-    );
-
-    const snapshot = await getDocs(q);
-    const reservedHours = snapshot.docs.map((doc) => doc.data().heure);
-    return getTimeSlots().filter((h) => !reservedHours.includes(h));
+  const updateHeures = () => {
+    if (!selectedDate || !coiffeur) return [];
+    const reserved = reservations[selectedDate]?.[coiffeur] || [];
+    return getTimeSlots().filter((t) => !reserved.includes(t));
   };
-
 
   const handleDateClick = (date) => {
     setSelectedDate(date);
   };
-  const [disponibles, setDisponibles] = useState([]);
-
-  useEffect(() => {
-    const load = async () => {
-      const heures = await updateHeures();
-      setDisponibles(heures);
-    };
-    load();
-  }, [selectedDate, coiffeur]);
 
   const generateCalendarDays = () => {
     const days = [];
@@ -116,46 +94,23 @@ const Contact = () => {
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-    
   };
 
   const handleSubmitStep1 = () => {
     if (validateStep1()) setStep(2);
   };
 
-  const handleSubmitStep2 = async () => {
+  const handleSubmitStep2 = () => {
     if (!validateStep2()) return;
-
-    const newReservation = {
-      nom,
-      courriel,
-      tel,
-      date: selectedDate,
-      heure,
-      coiffeur,
-      service,
-      createdAt: new Date()
-    };
-
-    try {
-      await addDoc(collection(db, "reservations"), newReservation);
-
-      // Nettoyer les infos après soumission
-      setSelectedDate(null);
-      setHeure("");
-      setCoiffeur("");
-      setService("");
-      setNom("");
-      setCourriel("");
-      setTel("");
-      setStep(3);
-    } catch (error) {
-      console.error("Erreur lors de la réservation :", error);
-      alert("Une erreur est survenue.");
-    }
+    setReservations((prev) => {
+      const updated = { ...prev };
+      if (!updated[selectedDate]) updated[selectedDate] = {};
+      if (!updated[selectedDate][coiffeur]) updated[selectedDate][coiffeur] = [];
+      updated[selectedDate][coiffeur].push(heure);
+      return updated;
+    });
+    setStep(3);
   };
-
-
 
   const monthYearLabel = new Date(currentYear, currentMonth).toLocaleString("fr-FR", {
     month: "long",
@@ -163,102 +118,102 @@ const Contact = () => {
   });
 
   return (
-    <div className={styles.container}>
-      <h1>Prendre un rendez-vous</h1>
+    <div className={styles.containerBody}>
+      <div className={styles.container}>
+        <h1>Prendre un rendez-vous</h1>
 
-      {step === 1 && (
-        <>
-          <label>Type de service :</label>
-          <select value={service} onChange={(e) => { setService(e.target.value); setCoiffeur(""); }}>
-            <option value="">- Sélectionner -</option>
-            <option value="coiffure">Coiffure & coupe de cheveux</option>
-            <option value="coloration">Coloration & balayage</option>
-            <option value="rallonges">Rallonges capillaires</option>
-          </select>
-          {errors.service && <div className={styles.error}>{errors.service}</div>}
+        {step === 1 && (
+          <>
+            <label>Type de service :</label>
+            <select value={service} onChange={(e) => { setService(e.target.value); setCoiffeur(""); }}>
+              <option value="">- Sélectionner -</option>
+              <option value="coiffure">Coiffure & coupe de cheveux</option>
+              <option value="coloration">Coloration & balayage</option>
+              <option value="rallonges">Rallonges capillaires</option>
+            </select>
+            {errors.service && <div className={styles.error}>{errors.service}</div>}
 
-          <div className={styles.calendarHeader}>
-            <button onClick={() => {
-              if (currentMonth === 0) {
-                setCurrentMonth(11);
-                setCurrentYear((y) => y - 1);
-              } else {
-                setCurrentMonth((m) => m - 1);
-              }
-            }}>◀</button>
-            <h3>{monthYearLabel.charAt(0).toUpperCase() + monthYearLabel.slice(1)}</h3>
-            <button onClick={() => {
-              if (currentMonth === 11) {
-                setCurrentMonth(0);
-                setCurrentYear((y) => y + 1);
-              } else {
-                setCurrentMonth((m) => m + 1);
-              }
-            }}>▶</button>
+            <div className={styles.calendarHeader}>
+              <button onClick={() => {
+                if (currentMonth === 0) {
+                  setCurrentMonth(11);
+                  setCurrentYear((y) => y - 1);
+                } else {
+                  setCurrentMonth((m) => m - 1);
+                }
+              }}>◀</button>
+              <h3>{monthYearLabel.charAt(0).toUpperCase() + monthYearLabel.slice(1)}</h3>
+              <button onClick={() => {
+                if (currentMonth === 11) {
+                  setCurrentMonth(0);
+                  setCurrentYear((y) => y + 1);
+                } else {
+                  setCurrentMonth((m) => m + 1);
+                }
+              }}>▶</button>
+            </div>
+
+            <div className={styles.calendarDays}>
+              <div>Lun</div><div>Mar</div><div>Mer</div><div>Jeu</div><div>Ven</div><div>Sam</div><div>Dim</div>
+            </div>
+            <div className={styles.calendar}>{generateCalendarDays()}</div>
+
+            {selectedDate && (
+              <>
+                <label>Coiffeur :</label>
+                <select value={coiffeur} onChange={(e) => setCoiffeur(e.target.value)}>
+                  <option value="">- Sélectionner -</option>
+                  {serviceCoiffeurs[service]?.map((c) => (
+                    <option key={c} value={c}>{c}</option>
+                  ))}
+                </select>
+                {errors.coiffeur && <div className={styles.error}>{errors.coiffeur}</div>}
+
+                <label>Heure :</label>
+                <select value={heure} onChange={(e) => setHeure(e.target.value)}>
+                  <option value="">- Sélectionner -</option>
+                  {updateHeures().map((h) => (
+                    <option key={h} value={h}>{h}</option>
+                  ))}
+                </select>
+                {errors.heure && <div className={styles.error}>{errors.heure}</div>}
+              </>
+            )}
+
+            <button onClick={handleSubmitStep1}>Réserver</button>
+          </>
+        )}
+
+        {step === 2 && (
+          <>
+            <div className={styles.summary}>
+              <p>Rendez-vous le {selectedDate} à {heure} pour une {service} avec {coiffeur}</p>
+              <button onClick={() => setStep(1)}>Modifier</button>
+            </div>
+
+            <label>Nom :</label>
+            <input value={nom} onChange={(e) => setNom(e.target.value)} />
+            {errors.nom && <div className={styles.error}>{errors.nom}</div>}
+
+            <label>Courriel :</label>
+            <input type="email" value={courriel} onChange={(e) => setCourriel(e.target.value)} />
+            {errors.courriel && <div className={styles.error}>{errors.courriel}</div>}
+
+            <label>Téléphone :</label>
+            <input type="tel" value={tel} onChange={(e) => setTel(e.target.value)} />
+            {errors.tel && <div className={styles.error}>{errors.tel}</div>}
+
+            <button onClick={handleSubmitStep2}>Soumettre</button>
+          </>
+        )}
+
+        {step === 3 && (
+          <div className={styles.confirmation}>
+            <div className={styles.checkmark}>✔️</div>
+            <p id="confirmation-text">Rendez-vous confirmé le {selectedDate} à {heure} avec {coiffeur}.</p>
           </div>
-
-          <div className={styles.calendarDays}>
-            <div>Lun</div><div>Mar</div><div>Mer</div><div>Jeu</div><div>Ven</div><div>Sam</div><div>Dim</div>
-          </div>
-          <div className={styles.calendar}>{generateCalendarDays()}</div>
-
-          {selectedDate && (
-            <>
-              <label>Coiffeur :</label>
-              <select value={coiffeur} onChange={(e) => setCoiffeur(e.target.value)}>
-                <option value="">- Sélectionner -</option>
-                {serviceCoiffeurs[service]?.map((c) => (
-                  <option key={c} value={c}>{c}</option>
-                ))}
-              </select>
-              {errors.coiffeur && <div className={styles.error}>{errors.coiffeur}</div>}
-
-              <label>Heure :</label>
-              <select value={heure} onChange={(e) => setHeure(e.target.value)}>
-                <option value="">- Sélectionner -</option>
-                {disponibles.map((h) => (
-                  <option key={h} value={h}>{h}</option>
-                ))}
-              </select>
-
-
-              {errors.heure && <div className={styles.error}>{errors.heure}</div>}
-            </>
-          )}
-
-          <button onClick={handleSubmitStep1}>Réserver</button>
-        </>
-      )}
-
-      {step === 2 && (
-        <>
-          <div className={styles.summary}>
-            <p>Rendez-vous le {selectedDate} à {heure} pour une {service} avec {coiffeur}</p>
-            <button onClick={() => setStep(1)}>Modifier</button>
-          </div>
-
-          <label>Nom :</label>
-          <input value={nom} onChange={(e) => setNom(e.target.value)} />
-          {errors.nom && <div className={styles.error}>{errors.nom}</div>}
-
-          <label>Courriel :</label>
-          <input type="email" value={courriel} onChange={(e) => setCourriel(e.target.value)} />
-          {errors.courriel && <div className={styles.error}>{errors.courriel}</div>}
-
-          <label>Téléphone :</label>
-          <input type="tel" value={tel} onChange={(e) => setTel(e.target.value)} />
-          {errors.tel && <div className={styles.error}>{errors.tel}</div>}
-
-          <button onClick={handleSubmitStep2}>Soumettre</button>
-        </>
-      )}
-
-      {step === 3 && (
-        <div className={styles.confirmation}>
-          <div className={styles.checkmark}>✔️</div>
-          <p id="confirmation-text">Rendez-vous confirmé le {selectedDate} à {heure} avec {coiffeur}.</p>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

@@ -1,3 +1,8 @@
+.containerBody{
+  background-color: #fff8f0;
+  justify-content: center;
+  align-items: center;
+}
 .container {
   background: white;
   padding: 30px;
