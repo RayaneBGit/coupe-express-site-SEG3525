@@ -1,3 +1,7 @@
+import { db } from "../firebase";
+import { getDocs, query, where, collection, addDoc } from "firebase/firestore";
+
+
 import React, { useState } from "react";
 import styles from "./Contact.module.css";
 
@@ -32,15 +36,33 @@ const Contact = () => {
     return slots;
   };
 
-  const updateHeures = () => {
-    if (!selectedDate || !coiffeur) return [];
-    const reserved = reservations[selectedDate]?.[coiffeur] || [];
-    return getTimeSlots().filter((t) => !reserved.includes(t));
+  const updateHeures = async () => {
+    if (!selectedDate || !coiffeur) return getTimeSlots();
+
+    const q = query(
+      collection(db, "reservations"),
+      where("date", "==", selectedDate),
+      where("coiffeur", "==", coiffeur)
+    );
+
+    const snapshot = await getDocs(q);
+    const reservedHours = snapshot.docs.map((doc) => doc.data().heure);
+    return getTimeSlots().filter((h) => !reservedHours.includes(h));
   };
+
 
   const handleDateClick = (date) => {
     setSelectedDate(date);
   };
+  const [disponibles, setDisponibles] = useState([]);
+
+  useEffect(() => {
+    const load = async () => {
+      const heures = await updateHeures();
+      setDisponibles(heures);
+    };
+    load();
+  }, [selectedDate, coiffeur]);
 
   const generateCalendarDays = () => {
     const days = [];
@@ -103,18 +125,26 @@ const Contact = () => {
   const handleSubmitStep2 = async () => {
     if (!validateStep2()) return;
 
-    try {
-      await fetch('http://localhost:3001/reservations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ date: selectedDate, coiffeur, heure })
-      });
+    const newReservation = {
+      nom,
+      courriel,
+      tel,
+      date: selectedDate,
+      heure,
+      coiffeur,
+      service,
+      createdAt: new Date()
+    };
 
+    try {
+      await addDoc(collection(db, "reservations"), newReservation);
       setStep(3);
-    } catch (err) {
-      alert("Erreur lors de la réservation. Veuillez réessayer.");
+    } catch (error) {
+      console.error("Erreur lors de la réservation :", error);
+      alert("Une erreur est survenue.");
     }
   };
+
 
 
   const monthYearLabel = new Date(currentYear, currentMonth).toLocaleString("fr-FR", {
@@ -176,10 +206,12 @@ const Contact = () => {
               <label>Heure :</label>
               <select value={heure} onChange={(e) => setHeure(e.target.value)}>
                 <option value="">- Sélectionner -</option>
-                {updateHeures().map((h) => (
+                {disponibles.map((h) => (
                   <option key={h} value={h}>{h}</option>
                 ))}
               </select>
+
+
               {errors.heure && <div className={styles.error}>{errors.heure}</div>}
             </>
           )}
