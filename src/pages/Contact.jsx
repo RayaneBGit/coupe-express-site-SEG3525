@@ -116,6 +116,7 @@ const Contact = () => {
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
+    
   };
 
   const handleSubmitStep1 = () => {
@@ -138,6 +139,15 @@ const Contact = () => {
 
     try {
       await addDoc(collection(db, "reservations"), newReservation);
+
+      // Nettoyer les infos après soumission
+      setSelectedDate(null);
+      setHeure("");
+      setCoiffeur("");
+      setService("");
+      setNom("");
+      setCourriel("");
+      setTel("");
       setStep(3);
     } catch (error) {
       console.error("Erreur lors de la réservation :", error);
