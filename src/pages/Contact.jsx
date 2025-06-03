@@ -115,12 +115,6 @@ const Contact = () => {
       alert("Erreur lors de la réservation. Veuillez réessayer.");
     }
   };
-  useEffect(() => {
-    fetch('http://localhost:3001/reservations')
-      .then(res => res.json())
-      .then(data => setReservations(data))
-      .catch(err => console.error("Erreur chargement réservations", err));
-  }, []);
 
 
   const monthYearLabel = new Date(currentYear, currentMonth).toLocaleString("fr-FR", {
