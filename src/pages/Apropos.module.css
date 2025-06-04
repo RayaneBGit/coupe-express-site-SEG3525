@@ -72,3 +72,41 @@
   color: #555;
   flex-grow: 1;
 }
+@media (max-width: 768px) {
+  .sectionBien{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .imgBienv{
+    width: 80%;
+    height: 270px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    background-size: cover;
+    padding-right: 0%;
+  }
+  .msgBienv{
+    text-align: center;
+    padding-right: 0%;
+  }
+  h2{
+    font-size: 1.2em;
+  }
+  p{
+    font-size: 0.7em;
+    margin-bottom: 50px;
+  }
+  .equipe {
+    border-radius: 15px;
+    width: 360px;
+    height: 460px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  h1{
+    font-size: 1.4em;
+  }
+}
