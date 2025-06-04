@@ -18,12 +18,12 @@ export default function Accueil() {
           >
             <h3>Coiffure & coupe de cheveux</h3>
           </div>
-          <a href="/services#coloratio"><div
+          <div
             className={styles.service}
             style={{ backgroundImage: "url('/img/Coloration.jpg')" }}
           >
-            <h3>Coloration & balayage</h3>
-          </div></a>
+            <a href="/services#coloratio"><h3>Coloration & balayage</h3></a>
+          </div>
           <a href="/services"><div
             className={styles.service}
             style={{ backgroundImage: "url('/img/Rallonges.jpg')" }}
