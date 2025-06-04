@@ -12,7 +12,9 @@ export default function Services() {
             <h2>Coiffure & Coupe de cheveux</h2>
             <p>Au Salon Boréal, on fait des coupes pour adults, enfants et ados, que ce soit quelque chose de classique, 
               moderne ou créatif. On prend le temps d’écouter ce que tu veux vraiment, pour que tu ressortes avec une coupe qui 
-              te fait sentir bien. Que tu veuilles juste couper les pointes ou changer complètement de tête, on est là pour te conseiller 
+              te fait sentir bien. 
+              </p><p>
+                Que tu veuilles juste couper les pointes ou changer complètement de tête, on est là pour te conseiller 
               et trouver le style qui te va le mieux. On s’adapte à tes cheveux, à ton visage et à ton style. On utilise aussi des bons produits 
               pour garder tes cheveux en santé et beaux plus longtemps. Chez nous, c’est relax, on veut que tu te sentes à l’aise du début à la fin.
             </p>
@@ -49,7 +51,8 @@ export default function Services() {
             <h2>Rallonges capillaires</h2>
             <p>
               Tu veux des cheveux plus longs ou plus de volume ? Au Salon Boréal, on pose des rallonges capillaires de façon pro, pour que ça ait l’air naturel et 
-              que ça tienne bien. Que ce soit pour un look plus glamour ou juste pour te sentir mieux avec tes cheveux, on est là pour t’aider à choisir ce qui te 
+              que ça tienne bien. 
+              </p><p>Que ce soit pour un look plus glamour ou juste pour te sentir mieux avec tes cheveux, on est là pour t’aider à choisir ce qui te 
               convient le plus. On utilise des rallonges de qualité, puis on prend le temps de bien les poser pour que ce soit confortable et beau. 
               Le but, c’est que tu ressortes avec des cheveux de rêve et un sourire en plus.
             </p>

@@ -8,12 +8,11 @@ export default function Accueil() {
       <div className={styles.sectionBien}>
         <div className={styles.imgBienv} style={{ backgroundImage: "url('/img/salon-de-coiffure-eco-responsable.jpg')"}}></div>
         <div className={styles.msgBienv}>
-          <h2>BIENVENUE AU SALON BORÉAL</h2>
+          <h2>Voici notre équipe de coiffeurs</h2>
           <p>
-            Venez vivre une expérience de coiffure haut de gamme avec des produits capillaires luxueux !
-            Nous sommes toujours à votre service afin de vous transmettre nos connaissances et notre expérience.
-            L'estime et la confiance en soi commencent toujours par notre reflet dans la glace.
-            Ne sous-estimez pas le pouvoir d'une belle chevelure ! Votre style, notre passion !
+            Au Salon Boréal, on est une belle gang passionnée par la coiffure. Chaque personne dans notre équipe a son style, ses idées et son petit côté créatif. 
+            Que ce soit pour une coupe, une coloration, un balayage ou des rallonges, on est là pour vous aider à vous sentir bien et à sortir du salon avec le sourire. 
+            On aime prendre le temps avec chaque client, jaser un peu et créer quelque chose qui vous ressemble. Venez nous rencontrer, vous allez être entre bonnes mains !
           </p>
         </div>
       </div>
