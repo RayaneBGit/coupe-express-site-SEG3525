@@ -43,8 +43,8 @@
   align-items: center;
 }
 .serviceImg img {
-  min-height: 800px;
-  min-width: 800px;
+  min-height: 700px;
+  min-width: 700px;
   height: 30%;
   width: 30%;
   border-radius: 12px;
@@ -52,6 +52,10 @@
 
 /* Responsive pour téléphone */
 @media (max-width: 768px) {
+  img {
+    height: 30%;
+    width: 30%;
+  }
   .service,
   .reverse {
     flex-direction: column;

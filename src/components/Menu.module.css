@@ -52,10 +52,10 @@
   background-color: #473729;
   color:#fff8ef;
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
-.navMenu ul li a :hover {
+.navMenu ul li a:not(.ctRdv) :hover {
   border: 2px solid #473729da;
   padding: 8px 16px;
   border-radius: 8px;
