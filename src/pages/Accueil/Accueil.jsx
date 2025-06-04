@@ -2,23 +2,6 @@ import styles from "./Accueil.module.css";
 
 
 export default function Accueil() {
-  console.log(`
-    ╔══════════════════════════════════════════════════════════════════════════════╗
-    ║                                                                              ║
-    ║   Le design de notre site web a été pensé pour être simple, doux            ║
-    ║   et facile à utiliser. On voulait que ça reflète l’ambiance du Salon       ║
-    ║   Boréal : chaleureux, naturel et accueillant.                              ║
-    ║                                                                              ║
-    ║   Les couleurs, les formes et les textes ont été choisis pour que tout      ║
-    ║   le monde s’y retrouve facilement, que ce soit sur ordi ou sur téléphone.  ║
-    ║                                                                              ║
-    ║   On espère que vous allez aimer naviguer dessus autant que nous on         ║
-    ║   a aimé le créer !                                                          ║
-    ║                                                                              ║
-    ║   🎨 Conception par : https://nicolabaker.github.io/                         ║
-    ║                                                                              ║
-    ╚══════════════════════════════════════════════════════════════════════════════╝
-  `);
 
   return (
     <div>
@@ -46,7 +29,7 @@ export default function Accueil() {
       <div className={styles.sectionBien}>
         <div className={styles.imgBienv} style={{ backgroundImage: "url('/img/salon-de-coiffure-eco-responsable.jpg')"}}></div>
         <div className={styles.msgBienv}>
-          <h2>BIENVENUE AU SALON BORÉAL</h2>
+          <h2>Bienvenue au Salon Boréal</h2>
           <p>
             Venez vivre une expérience de coiffure haut de gamme avec des produits capillaires luxueux !
             Nous sommes toujours à votre service afin de vous transmettre nos connaissances et notre expérience.
