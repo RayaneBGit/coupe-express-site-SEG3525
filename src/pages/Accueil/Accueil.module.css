@@ -63,11 +63,11 @@ h1 {
   top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fdecdd57;
+  background-color: #fdecddaf;
   width: 100%;
   padding: 30px 0px;
   font-size: 1.6em;
-  color: #11100e;
+  color: #473729;
   z-index: 2;
   white-space: nowrap;
 }
