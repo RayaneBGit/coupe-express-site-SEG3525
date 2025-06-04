@@ -12,24 +12,24 @@ export default function Accueil() {
         <h1>- Notre offre de service -</h1>
         <br />
         <div className={styles.serviceContainer}>
-          <div
+          <a href="/services"><div
             className={styles.service}
             style={{ backgroundImage: "url('/img/Coiffure.jpg')" }}
           >
             <h3>Coiffure & coupe de cheveux</h3>
-          </div>
-          <div
+          </div></a>
+          <a href="/services"><div
             className={styles.service}
             style={{ backgroundImage: "url('/img/Coloration.jpg')" }}
           >
             <h3>Coloration & balayage</h3>
-          </div>
-          <div
+          </div></a>
+          <a href="/services"><div
             className={styles.service}
             style={{ backgroundImage: "url('/img/Rallonges.jpg')" }}
           >
             <h3>Rallonges capillaires</h3>
-          </div>
+          </div></a>
         </div>
       </div>
 
