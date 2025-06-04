@@ -32,12 +32,15 @@
   font-size: 1rem;
   line-height: 1.6;
 }
-
+.serviceImg {
+  display: flex;
+  align-items: center;
+}
 .serviceImg img {
-  min-height: 400px;
-  min-width: 300px;
+  min-height: 800px;
+  min-width: 800px;
   height: 40%;
-  width: 300px;
+  width: 50%;
   border-radius: 12px;
 }
 
