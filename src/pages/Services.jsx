@@ -19,7 +19,7 @@ export default function Services() {
         <div className={`${styles.service} ${styles.reverse}`}>
           <div className={styles.serviceImg}>
             <img
-              src="/img/Rallonges.jpg"
+              src="/img/Couleur.jpeg"
               alt="Coloration et balayage"
             />
           </div>
@@ -34,7 +34,7 @@ export default function Services() {
         <div className={styles.service}>
           <div className={styles.serviceImg}>
             <img
-              src="/img/Couleur.jpeg"
+              src="/img/Rallonges.jpg"
               alt="Rallonges capillaires"
             />
           </div>
