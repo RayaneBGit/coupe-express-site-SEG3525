@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from "react";
 import Accueil from './pages/Accueil/Accueil.jsx';
 import Apropos from './pages/Apropos';
 import Services from './pages/Services';
@@ -7,6 +8,14 @@ import Menu from './components/Menu';
 import Footer from './components/Footer';
 
 export default function App() {
+  useEffect(() => {
+    document.title = "Salon Boréal";
+    const link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+    link.type = "image/png";
+    link.rel = "icon";
+    link.href = "/img/logopn.png";
+    document.head.appendChild(link);
+  }, []);
   return (
     <Router>
       <Menu />
