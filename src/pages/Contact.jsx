@@ -210,7 +210,7 @@ const Contact = () => {
         {step === 3 && (
           <div className={styles.confirmation}>
             <div className={styles.checkmark}>✔️</div>
-            <p id="confirmation-text">Rendez-vous confirmé le {selectedDate} à {heure} avec {coiffeur}.</p>
+            <p id="confirmation-text">Votre rendez-vous est le {selectedDate} à {heure} avec {coiffeur}. On vous enverra un courriel de confirmation si votre réservation est acceptée.</p>
           </div>
         )}
       </div>
