@@ -52,10 +52,6 @@
 
 /* Responsive pour téléphone */
 @media (max-width: 768px) {
-  img {
-    height: 30%;
-    width: 30%;
-  }
   .service,
   .reverse {
     flex-direction: column;
