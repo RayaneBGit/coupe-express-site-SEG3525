@@ -37,7 +37,8 @@
 }
 
 .serviceImg img {
-  width: 100%;
+  min-height: 400px;
+  min-width: 300px;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
