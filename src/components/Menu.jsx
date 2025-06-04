@@ -89,7 +89,7 @@ export default function Menu() {
           <li><Link to="/">Accueil</Link></li>
           <li><Link to="/services">Service</Link></li>
           <li><Link to="/apropos">À propos</Link></li>
-          <li><a href="#section4" className={styles.ctRdv}>Prendre rendez-vous</a></li>
+          <li><a href="/Contact" className={styles.ctRdv}>Prendre rendez-vous</a></li>
         </ul>
       </div>
     </nav>
