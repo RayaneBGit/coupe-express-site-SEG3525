@@ -1,3 +1,9 @@
+.containerBody{
+  background-color: #fff8f0;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
 .servicesSection {
   max-width: 1800px;
   padding: 140px 0px;

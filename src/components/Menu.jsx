@@ -36,7 +36,7 @@ export default function Menu() {
       menubar.style.transition = 'top 0.3s, background-color 0.3s';
       if (current === 0) {
         menubar.style.top = '0';
-        menubar.style.backgroundColor = 'transparent';
+        menubar.style.backgroundColor = '#fdecdd';
         logoMenu.style.display = 'block';
       } else if (current > lastScroll) {
         menubar.style.top = '-100px';
