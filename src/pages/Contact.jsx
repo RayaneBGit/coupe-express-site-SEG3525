@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styles from "./Contact.module.css";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "./firebase"; // chemin vers ton fichier firebase.js
+import { addDoc, collection } from "firebase/firestore";
 
 const Contact = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -22,6 +25,31 @@ const Contact = () => {
     coloration: ["Karim", "Catherine", "Julie"],
     rallonges: ["Audrey", "Julie", "Lucie"],
   };
+
+  const fetchReservations = async (date, coiffeur) => {
+    const q = query(
+      collection(db, "reservations"),
+      where("date", "==", date),
+      where("coiffeur", "==", coiffeur)
+    );
+    const snapshot = await getDocs(q);
+    return snapshot.docs.map((doc) => doc.data().heure); // Tableau des heures réservées
+  };
+  useEffect(() => {
+    const load = async () => {
+      if (selectedDate && coiffeur) {
+        const reservedHeures = await fetchReservations(selectedDate, coiffeur);
+        setReservations((prev) => ({
+          ...prev,
+          [selectedDate]: {
+            ...prev[selectedDate],
+            [coiffeur]: reservedHeures,
+          },
+        }));
+      }
+    };
+    load();
+  }, [selectedDate, coiffeur]);
 
   const getTimeSlots = () => {
     const slots = [];
@@ -100,15 +128,27 @@ const Contact = () => {
     if (validateStep1()) setStep(2);
   };
 
-  const handleSubmitStep2 = () => {
+  const handleSubmitStep2 = async () => {
     if (!validateStep2()) return;
-    setReservations((prev) => {
-      const updated = { ...prev };
-      if (!updated[selectedDate]) updated[selectedDate] = {};
-      if (!updated[selectedDate][coiffeur]) updated[selectedDate][coiffeur] = [];
-      updated[selectedDate][coiffeur].push(heure);
-      return updated;
+
+    // Vérifier à nouveau que l'heure est toujours libre
+    const existing = await fetchReservations(selectedDate, coiffeur);
+    if (existing.includes(heure)) {
+      alert("Cette heure a été prise entre-temps. Veuillez choisir une autre.");
+      return;
+    }
+
+    await addDoc(collection(db, "reservations"), {
+      date: selectedDate,
+      coiffeur,
+      heure,
+      nom,
+      courriel,
+      tel,
+      service,
+      timestamp: new Date()
     });
+
     setStep(3);
   };
 
