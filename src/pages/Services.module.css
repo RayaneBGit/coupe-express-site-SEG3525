@@ -1,7 +1,6 @@
 .servicesSection {
   max-width: 1800px;
-  margin: auto;
-  padding: 40px 20px;
+  padding: 40px 0px;
 }
 
 .service {
@@ -21,8 +20,6 @@
 .serviceImg {
   flex: 1;
   padding: 20px;
-  min-height: 400px;
-  min-width: 300px;
 }
 
 .serviceText h2 {
@@ -40,8 +37,8 @@
   min-height: 400px;
   min-width: 300px;
   height: 40%;
+  width: 300px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive pour téléphone */
