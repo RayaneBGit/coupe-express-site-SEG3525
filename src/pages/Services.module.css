@@ -1,8 +1,6 @@
 .servicesSection {
   max-width: 1800px;
   padding: 140px 0px;
-  display: flex;
-  align-items: center;
 }
 
 .service {
