@@ -52,11 +52,16 @@
   background-color: #473729;
   color:#fff8ef;
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 12px;
+}
+.navMenu ul li a.ctRdv {
+  border: 2px solid #473729e3;
+  background-color: #473729e3;
+  color:#835e4c;
 }
 
 .navMenu ul li :hover {
-  color: #674230;
+  color: #835e4c;
 }
 @media (max-width: 768px) {
   .navMenu {
@@ -77,6 +82,7 @@
   .navMenu ul {
     flex-direction: column;
     text-align: center;
+    gap: 20px;
     padding: 10px 0;
   }
 
