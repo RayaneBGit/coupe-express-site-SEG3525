@@ -55,10 +55,15 @@
   border-radius: 12px;
 }
 .navMenu ul li a.ctRdv:hover {
+  border: 2px solid #3f3126;
+  background-color: #3f3126;
   color: #ffffff;
 }
 .navMenu ul li :hover {
   color: #835e4c;
+  background-color: #fff8ef;
+  padding: 8px 16px;
+  border-radius: 12px;
 }
 @media (max-width: 1068px) {
   .navMenu {
