@@ -90,7 +90,7 @@ const Contact = () => {
 
     if (!nom) newErrors.nom = "Veuillez entrer votre nom.";
     if (!emailRegex.test(courriel)) newErrors.courriel = "Veuillez entrer un courriel valide.";
-    if (!phoneRegex.test(tel)) newErrors.tel = "Veuillez entrer un numéro de téléphone valide (10 chiffres).";
+    if (!phoneRegex.test(tel)) newErrors.tel = "Veuillez entrer un numéro de téléphone valide.";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -187,7 +187,7 @@ const Contact = () => {
         {step === 2 && (
           <>
             <div className={styles.summary}>
-              <p>Rendez-vous le {selectedDate} à {heure} pour une {service} avec {coiffeur}</p>
+              <p>Rendez-vous le {selectedDate} à {heure} pour une {service} avec {coiffeur}.</p>
               <button onClick={() => setStep(1)}>Modifier</button>
             </div>
 

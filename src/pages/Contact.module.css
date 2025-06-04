@@ -109,7 +109,7 @@ button:hover {
 
 .checkmark {
   font-size: 4rem;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   color: #473729;
   animation: popsAn 0.4s ease-out;
 }
