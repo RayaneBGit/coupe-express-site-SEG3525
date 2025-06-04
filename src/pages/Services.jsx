@@ -30,7 +30,7 @@ export default function Services() {
             <h2>Coloration & Balayage</h2>
             <p>
               Au Salon Boréal, on fait des colorations et des balayages pour donner un nouveau style à tes cheveux ou juste les rendre plus lumineux. 
-              Que tu veuilles quelque chose de naturel ou essayer une nouvelle couleur, on est là pour t’aider à choisir ce qui te va le mieux. 
+              Que tu veuilles quelque chose de naturel ou essayer une nouvelle couleur, on est là pour t’aider à choisir ce qui te va le mieux. </p><p>
               On prend le temps de t’écouter, on utilise des bons produits qui respectent tes cheveux, puis on fait ça dans une ambiance chill. 
               Que ce soit pour cacher des repousses, ajouter de la lumière ou changer de tête, on s’arrange pour que tu sortes du salon en te sentant bien 
               et en aimant le résultat.
