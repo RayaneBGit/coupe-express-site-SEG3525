@@ -55,11 +55,8 @@
   border-radius: 8px;
 }
 
-.navMenu ul li:not(.ctRdv):hover {
-  border: 2px solid #473729da;
-  padding: 8px 16px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+.navMenu ul li:not(a.ctRdv):hover {
+  color: #674230;
 }
 @media (max-width: 768px) {
   .navMenu {
