@@ -191,7 +191,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
   }
-  a .service {
+  .service {
     width: 100%;
     height: 260px;
     font-size: 1.2em;

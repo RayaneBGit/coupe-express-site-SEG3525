@@ -12,13 +12,13 @@ export default function Accueil() {
         <h1>- Notre offre de service -</h1>
         <br />
         <div className={styles.serviceContainer}>
-          <a href="/services"><div
+          <div href="/services"
             className={styles.service}
             style={{ backgroundImage: "url('/img/Coiffure.jpg')" }}
           >
             <h3>Coiffure & coupe de cheveux</h3>
-          </div></a>
-          <a href="/services"><div
+          </div>
+          <a href="/services#coloratio"><div
             className={styles.service}
             style={{ backgroundImage: "url('/img/Coloration.jpg')" }}
           >

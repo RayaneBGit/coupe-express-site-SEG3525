@@ -23,7 +23,7 @@ export default function Services() {
               alt="Coloration et balayage"
             />
           </div>
-          <div className={styles.serviceText}>
+          <div className={styles.serviceText} id="coloratio">
             <h2>Coloration & Balayage</h2>
             <p>
               Coloration, mèches et balayages pour donner de l'éclat à vos cheveux.
