@@ -1,0 +1,51 @@
+.servicesSection {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.service {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.serviceText,
+.serviceImg {
+  flex: 1;
+  padding: 20px;
+  min-width: 300px;
+}
+
+.serviceText h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #a0522d;
+}
+
+.serviceText p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.serviceImg img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive pour téléphone */
+@media (max-width: 768px) {
+  .service,
+  .reverse {
+    flex-direction: column;
+  }
+}
