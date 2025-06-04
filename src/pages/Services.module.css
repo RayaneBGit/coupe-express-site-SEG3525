@@ -1,5 +1,5 @@
 .servicesSection {
-  max-width: 1200px;
+  max-width: 1800px;
   margin: auto;
   padding: 40px 20px;
 }
@@ -21,6 +21,7 @@
 .serviceImg {
   flex: 1;
   padding: 20px;
+  min-height: 400px;
   min-width: 300px;
 }
 
