@@ -14,8 +14,6 @@ export default function Menu() {
     const burger = burgerRef.current;
     const navMenu = navMenuRef.current;
     const menubar = menubarRef.current;
-    const logoMenu = logoMenuRef.current;
-    const logoMenuT = logoMenuTRef.current;
 
     // quand on clique sur le burger
     const toggleMenu = (e) => {
