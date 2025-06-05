@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Contact.module.css";
 
-const Contact = () => {
+export default function Contact() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -250,8 +250,11 @@ const Contact = () => {
                 <label>Coiffeur :</label>
                 <select value={coiffeur} onChange={(e) => setCoiffeur(e.target.value)}>
                   <option value="">- Sélectionner -</option>
-                  {serviceCoiffeurs[service]?.map((c) => (
-                    <option key={c} value={c}>{c}</option>
+
+                  {serviceCoiffeurs[service]?.map((nomCoiffeur) => (
+                    <option key={nomCoiffeur} value={nomCoiffeur}>
+                      {nomCoiffeur}
+                    </option>
                   ))}
                 </select>
                 {errors.coiffeur && <div className={styles.error}>{errors.coiffeur}</div>}
@@ -260,7 +263,9 @@ const Contact = () => {
                 <select value={heure} onChange={(e) => setHeure(e.target.value)}>
                   <option value="">- Sélectionner -</option>
                   {updateHeures().map((h) => (
-                    <option key={h} value={h}>{h}</option>
+                    <option key={h} value={h}>
+                      {h}
+                    </option>
                   ))}
                 </select>
                 {errors.heure && <div className={styles.error}>{errors.heure}</div>}
@@ -305,4 +310,3 @@ const Contact = () => {
   );
 };
 
-export default Contact;
