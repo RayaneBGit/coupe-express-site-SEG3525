@@ -16,13 +16,12 @@ export default function Menu() {
 
     const toggleMenu = (e) => {
       navMenu.classList.toggle(styles.open);
-      e.stopPropagat();
+      e.stopPropagation();
     };
 
     const closeMenu = () => {
       navMenu.classList.remove(styles.open);
     };
-
 
     const handleDocumentClick = () => {
       if (navMenu.classList.contains(styles.open)) {
@@ -30,24 +29,18 @@ export default function Menu() {
       }
     };
 
-    const stopPropagat = (e) => e.stopPropagat();
+    const stopPropagation = (e) => e.stopPropagation();
 
     const handleScroll = () => {
-
       let current = window.scrollY;
-
       menubar.style.transition = 'top 0.3s, background-color 0.3s';
-
       if (current === 0) {
         menubar.style.top = '0';
         menubar.style.backgroundColor = '#fdecdd';
         logoMenu.style.display = 'block';
-      } 
-      else if (current > lastScroll) {
+      } else if (current > lastScroll) {
         menubar.style.top = '-100px';
-
-      } 
-      else {
+      } else {
         menubar.style.top = '0';
         menubar.style.backgroundColor = '#fdecdd';
         logoMenu.style.display = 'block';
@@ -59,7 +52,7 @@ export default function Menu() {
 
     burger.addEventListener('click', toggleMenu);
     document.addEventListener('click', handleDocumentClick);
-    navMenu.addEventListener('click', stopPropagat);
+    navMenu.addEventListener('click', stopPropagation);
 
     const links = navMenu.querySelectorAll('a');
     links.forEach((link) => {
@@ -71,7 +64,7 @@ export default function Menu() {
     return () => {
       burger.removeEventListener('click', toggleMenu);
       document.removeEventListener('click', handleDocumentClick);
-      navMenu.removeEventListener('click', stopPropagat);
+      navMenu.removeEventListener('click', stopPropagation);
       links.forEach((link) => {
         link.removeEventListener('click', closeMenu);
       });
@@ -79,9 +72,7 @@ export default function Menu() {
     };
   }, []);
 
-
   return (
-
     <nav className={styles.menubar} ref={menubarRef}>
       <Link to="/">
         <img className={styles.logoMenu} ref={logoMenuRef} src="/img/logo.png" alt="Logo" />
