@@ -9,22 +9,22 @@
 ## Qui a fait quoi
 
 ### 📝 Rapport écrit  
-- [✔] Rayane → A rédigé les réponses aux questions  
-- [✔] Nicola → A aidé à reformuler et organiser le texte  
-- [✔] Nicola → Utilisé Antidote pour corriger et améliorer
+- [x] Rayane → A rédigé les réponses aux questions  
+- [x] Nicola → A aidé à reformuler et organiser le texte  
+- [x] Nicola → Utilisé Antidote pour corriger et améliorer
 
 ### 👤 Personnages (2)  
-- [✔] Rayane → A écrit le personnage de Karim  
-- [✔] Rayane → A écrit le personnage d’Élodie  
-- [✔] Nicola → A vérifié ensemble que ça faisait du sens
+- [x] Rayane → A écrit le personnage de Karim  
+- [x] Rayane → A écrit le personnage d’Élodie  
+- [x] Nicola → A vérifié ensemble que ça faisait du sens
 
 ### 🎬 Scénarimages (2 différents)  
-- [✔] Rayane → A fait les croquis pour le scénario de Karim  
-- [✔] Rayane → A fait les croquis pour le scénario d’Élodie  
-- [✔] Tous les 2 → On s’est assurés qu’ils étaient bien clairs
+- [x] Rayane → A fait les croquis pour le scénario de Karim  
+- [x] Rayane → A fait les croquis pour le scénario d’Élodie  
+- [x] Tous les 2 → On s’est assurés qu’ils étaient bien clairs
 
 ### 🌐 Site web  
-- [✔] Nicola → A fait la mise en page principale (accueil, menu, sections)  
-- [✔] Nicola → A choisi les couleurs, les images et a intégré les textes  
-- [✔] Nicola → Testé le site ensemble et fait des ajustements
+- [x] Nicola → A fait la mise en page principale (accueil, menu, sections)  
+- [x] Nicola → A choisi les couleurs, les images et a intégré les textes  
+- [x] Nicola → Testé le site ensemble et fait des ajustements
 
