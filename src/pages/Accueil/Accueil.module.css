@@ -185,7 +185,7 @@ h1 {
 }
 @media (max-width: 768px) {
   .sectionAcc{
-    height: 30vh;
+    height: 24vh;
   }
   .sectionBien{
     flex-wrap: wrap;
@@ -216,7 +216,7 @@ h1 {
     font-size: 1.2em;
   }
   p{
-    font-size: 0.6em;
+    font-size: 0.4em;
     margin-bottom: 50px;
   }
   .equipe {
@@ -228,6 +228,6 @@ h1 {
     justify-content: space-between;
   }
   h1{
-    font-size: 1.4em;
+    font-size: 1em;
   }
 }
