@@ -43,6 +43,7 @@ export default function Contact() {
   };
 
 
+   // Fonction qui retourne les heures libres
   function updateHeures() {
     if (selectedDate === null || coiffeur === "") {
       return [];
@@ -70,6 +71,7 @@ export default function Contact() {
     setSelectedDate(date);
   };
 
+  // Fonction pour créer les jours
   function generateCalendarDays() {
     const jours = [];
     const premierJour = new Date(currentYear, currentMonth, 1).getDay();
@@ -114,6 +116,7 @@ export default function Contact() {
     return jours;
   }
 
+  // Vérification des infos à l’étape 1
   function validateStep1() {
     const erreurs = {};
 
@@ -138,6 +141,7 @@ export default function Contact() {
     return Object.keys(erreurs).length === 0 && selectedDate !== null;
   }
 
+   // Vérification des infos à l’étape 2
   function validateStep2() {
 
     const erreurs = {};
@@ -209,6 +213,7 @@ export default function Contact() {
       <div className={styles.container}>
         <h1>Prendre un rendez-vous</h1>
 
+        {/* Étape 1 : choix du service, date, coiffeur, heure */}
         {step === 1 && (
           <>
             <label>Type de service :</label>
@@ -240,6 +245,7 @@ export default function Contact() {
               }}>▶</button>
             </div>
 
+            {/* Jours du calendrier */}
             <div className={styles.calendarDays}>
               <div>Lun</div><div>Mar</div><div>Mer</div><div>Jeu</div><div>Ven</div><div>Sam</div><div>Dim</div>
             </div>
@@ -276,6 +282,7 @@ export default function Contact() {
           </>
         )}
 
+        {/* étape 2 : informations de contact */}
         {step === 2 && (
           <>
             <div className={styles.summary}>
@@ -299,6 +306,7 @@ export default function Contact() {
           </>
         )}
 
+        {/* étape 3 : message de confirmation */}
         {step === 3 && (
           <div className={styles.confirmation}>
             <div className={styles.checkmark}>✔️</div>

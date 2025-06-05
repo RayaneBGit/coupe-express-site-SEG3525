@@ -14,23 +14,28 @@ export default function Menu() {
     const menubar = menubarRef.current;
     const logoMenu = logoMenuRef.current;
 
+    // quand on clique sur le burger
     const toggleMenu = (e) => {
       navMenu.classList.toggle(styles.open);
       e.stopPropagation();
     };
 
+    // pour fermer le menu
     const closeMenu = () => {
       navMenu.classList.remove(styles.open);
     };
 
+    // si on clique n’importe
     const handleDocumentClick = () => {
       if (navMenu.classList.contains(styles.open)) {
         navMenu.classList.remove(styles.open);
       }
     };
 
+    // pour pas que le clic sur le menu
     const stopPropagation = (e) => e.stopPropagation();
 
+    // quand on scrolle la page
     const handleScroll = () => {
       let current = window.scrollY;
       menubar.style.transition = 'top 0.3s, background-color 0.3s';
@@ -73,6 +78,7 @@ export default function Menu() {
   }, []);
 
   return (
+    // le menu en haut de la page
     <nav className={styles.menubar} ref={menubarRef}>
       <Link to="/">
         <img className={styles.logoMenu} ref={logoMenuRef} src="/img/logo.png" alt="Logo" />

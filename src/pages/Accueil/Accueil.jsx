@@ -19,6 +19,7 @@ export default function Accueil() {
           <div className={styles.service} style={{ backgroundImage: "url('/img/Coloration.jpg')" }}>
             <a href="/services"><h3>Coloration & balayage</h3></a>
           </div>
+          
           <div className={styles.service} style={{ backgroundImage: "url('/img/Rallonges.jpg')" }}>
             <a href="/services"><h3>Rallonges capillaires</h3></a>
           </div>

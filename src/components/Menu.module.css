@@ -1,3 +1,5 @@
+
+/* Menu section */
 .menubar {
   position: fixed;
   top: 0;
@@ -65,6 +67,8 @@
   padding: 8px 16px;
   border-radius: 12px;
 }
+
+/* Section Téléphone*/
 @media (max-width: 1118px) {
   .navMenu {
     display: none;

@@ -3,6 +3,8 @@ import styles from "./Services.module.css";
 export default function Services() {
   return (
     <div className={styles.containerBody}>
+
+      {/* Section qui contient tous les services du salon */}
       <section className={styles.servicesSection}>
         <div className={styles.service}>
           <div className={styles.serviceImg}>

@@ -2,6 +2,8 @@ import styles from './Footer.module.css';
 
 export default function Footer() {
   return (
+
+    // footer pour le bas de page
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
         <div className={styles.footerText}>
@@ -22,8 +24,8 @@ export default function Footer() {
               <div className={styles.info}>
                 <strong>Adresse</strong>
                 <br />
-                123 Rue Principale,<br/>
-                Moose Creek, ON K0C 1W0
+                123 Rue adam,<br/>
+                Ottawa, ON K0C 1W0
               </div>
             </li>
             <li>

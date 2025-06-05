@@ -23,9 +23,9 @@ export default function App() {
     ║   et facile à utiliser. On voulait que ça reflète l’ambiance du Salon        ║
     ║   Boréal : chaleureux, naturel et accueillant.                               ║
     ║                                                                              ║
-    ║   🎨 Conception par  https://nicolabaker.github.io/                          ║
+    ║      Conception par  https://nicolabaker.github.io/                          ║
     ║                                                                              ║
-    ║   📝 Rapport rédigé par Rayane                                               ║
+    ║      Rapport rédigé par Rayane                                               ║
     ║                                                                              ║
     ╚══════════════════════════════════════════════════════════════════════════════╝
   `);

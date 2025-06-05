@@ -4,7 +4,7 @@ import styles from "./Apropos.module.css";
 export default function Accueil() {
   return (
     <div>
-      {/* Section Bienvenue */}
+      {/* Section équipe */}
       <div className={styles.sectionBien}>
         <div className={styles.imgBienv} style={{ backgroundImage: "url('/img/salon-de-coiffure-eco-responsable.jpg')"}}></div>
         <div className={styles.msgBienv}>
