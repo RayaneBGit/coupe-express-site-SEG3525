@@ -20,7 +20,8 @@
 }
 .logoMenuT {
   display: none;
-  height: 90px;
+  margin-top: 6px;
+  height: 60px;
 }
 
 .navMenu ul {
