@@ -18,6 +18,10 @@
   display: block;
   height: 90px;
 }
+.logoMenuT {
+  display: none;
+  height: 90px;
+}
 
 .navMenu ul {
   list-style: none;
@@ -80,7 +84,13 @@
     top: 80px;
     left: 0;
   }
+  .logoMenu {
+    display: none;
+  }
 
+  .logoMenuT {
+    display: block;
+  }
   .navMenu.open {
     display: block;
   }
