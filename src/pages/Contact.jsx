@@ -24,93 +24,180 @@ const Contact = () => {
   };
 
   const getTimeSlots = () => {
-    const slots = [];
-    for (let h = 9; h <= 17; h++) {
-      slots.push(`${h.toString().padStart(2, "0")}:00`);
-      if (h !== 17) slots.push(`${h.toString().padStart(2, "0")}:30`);
+    const heuresDisponibles = [];
+    let heure = 9;
+
+    while (heure <= 17) {
+      let heureTexte = heure.toString();
+      if (heureTexte.length < 2) {
+        heureTexte = "0" + heureTexte;
+      }
+      heuresDisponibles.push(heureTexte + ":00");
+      if (heure !== 17) {
+        heuresDisponibles.push(heureTexte + ":30");
+      }
+      heure = heure + 1;
     }
-    return slots;
+
+    return heuresDisponibles;
   };
 
-  const updateHeures = () => {
-    if (!selectedDate || !coiffeur) return [];
-    const reserved = reservations[selectedDate]?.[coiffeur] || [];
-    return getTimeSlots().filter((t) => !reserved.includes(t));
-  };
+
+  function updateHeures() {
+    if (selectedDate === null || coiffeur === "") {
+      return [];
+    }
+
+    const reserved = reservations[selectedDate];
+    let dejaPris = [];
+
+    if (reserved && reserved[coiffeur]) {
+      dejaPris = reserved[coiffeur];
+    }
+    const toutesLesHeures = getTimeSlots();
+    const heuresLibres = [];
+
+    for (let i = 0; i < toutesLesHeures.length; i++) {
+      const h = toutesLesHeures[i];
+      if (!dejaPris.includes(h)) {
+        heuresLibres.push(h);
+      }
+    }
+    return heuresLibres;
+  }
 
   const handleDateClick = (date) => {
     setSelectedDate(date);
   };
 
-  const generateCalendarDays = () => {
-    const days = [];
-    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-    const startDay = firstDay === 0 ? 6 : firstDay - 1;
+  function generateCalendarDays() {
+    const jours = [];
+    const premierJour = new Date(currentYear, currentMonth, 1).getDay();
+    const joursDansLeMois = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-    for (let i = 0; i < startDay; i++) {
-      days.push(<div key={`empty-${i}`} />);
+    let debut = 0;
+    if (premierJour === 0) {
+      debut = 6;
+    } else {
+      debut = premierJour - 1;
     }
 
-    for (let d = 1; d <= daysInMonth; d++) {
+    for (let i = 0; i < debut; i++) {
+      jours.push(<div key={"empty-" + i}></div>);
+    }
+
+    for (let d = 1; d <= joursDansLeMois; d++) {
       const date = new Date(currentYear, currentMonth, d);
       const fullDate = date.toISOString().split("T")[0];
-      const isDisabled = date <= today || date.getDay() === 0;
+      const estAvantAujourdHui = date <= today;
+      const estDimanche = date.getDay() === 0;
 
-      days.push(
+      const estDésactivé = estAvantAujourdHui || estDimanche;
+      jours.push(
         <div
           key={d}
-          className={`${styles.day} ${
-            selectedDate === fullDate ? styles.selected : ""
-          } ${isDisabled ? styles.disabled : ""}`}
-          onClick={() => !isDisabled && handleDateClick(fullDate)}
+          className={
+            styles.day +
+            (selectedDate === fullDate ? " " + styles.selected : "") +
+            (estDésactivé ? " " + styles.disabled : "")
+          }
+          onClick={() => {
+            if (!estDésactivé) {
+              handleDateClick(fullDate);
+            }
+          }}
         >
           {d}
         </div>
       );
     }
+    return jours;
+  }
 
-    return days;
-  };
+  function validateStep1() {
+    const erreurs = {};
 
-  const validateStep1 = () => {
-    const newErrors = {};
-    if (!service) newErrors.service = "Veuillez sélectionner un service.";
-    if (!coiffeur) newErrors.coiffeur = "Veuillez sélectionner un coiffeur.";
-    if (!heure) newErrors.heure = "Veuillez sélectionner une heure.";
-    if (!selectedDate) alert("Veuillez sélectionner une date sur le calendrier.");
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0 && selectedDate;
-  };
+    if (service === "") {
+      erreurs.service = "Veuillez sélectionner un service.";
+    }
 
-  const validateStep2 = () => {
-    const newErrors = {};
+    if (coiffeur === "") {
+      erreurs.coiffeur = "Veuillez sélectionner un coiffeur.";
+    }
+
+    if (heure === "") {
+      erreurs.heure = "Veuillez sélectionner une heure.";
+    }
+
+    if (!selectedDate) {
+      alert("Veuillez sélectionner une date sur le calendrier.");
+    }
+
+    setErrors(erreurs);
+
+    return Object.keys(erreurs).length === 0 && selectedDate !== null;
+  }
+
+  function validateStep2() {
+
+    const erreurs = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^\d{10}$/;
 
-    if (!nom) newErrors.nom = "Veuillez entrer votre nom.";
-    if (!emailRegex.test(courriel)) newErrors.courriel = "Veuillez entrer un courriel valide.";
-    if (!phoneRegex.test(tel)) newErrors.tel = "Veuillez entrer un numéro de téléphone valide.";
+    if (nom === "") {
+      erreurs.nom = "Veuillez entrer votre nom.";
+    }
+    if (courriel === "") {
+      erreurs.courriel = "Veuillez entrer votre courriel.";
+    } else {
+      if (!emailRegex.test(courriel)) {
+        erreurs.courriel = "Veuillez entrer un courriel valide.";
+      }
+    }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+    if (tel === "") {
+      erreurs.tel = "Veuillez entrer votre numéro de téléphone.";
+    } else {
+      if (!phoneRegex.test(tel)) {
+        erreurs.tel = "Veuillez entrer un numéro de téléphone valide.";
+      }
+    }
+    setErrors(erreurs);
 
-  const handleSubmitStep1 = () => {
-    if (validateStep1()) setStep(2);
-  };
+    return Object.keys(erreurs).length === 0;
+  }
 
-  const handleSubmitStep2 = () => {
-    if (!validateStep2()) return;
+  function handleSubmitStep1() {
+    const estValide = validateStep1();
+    if (estValide) {
+      setStep(2);
+    }
+  }
+
+  function handleSubmitStep2() {
+    const estBon = validateStep2();
+
+    if (!estBon) {
+      return;
+    }
+
     setReservations((prev) => {
-      const updated = { ...prev };
-      if (!updated[selectedDate]) updated[selectedDate] = {};
-      if (!updated[selectedDate][coiffeur]) updated[selectedDate][coiffeur] = [];
-      updated[selectedDate][coiffeur].push(heure);
-      return updated;
+      const copie = { ...prev };
+
+      if (!copie[selectedDate]) {
+        copie[selectedDate] = {};
+      }
+      if (!copie[selectedDate][coiffeur]) {
+        copie[selectedDate][coiffeur] = [];
+      }
+
+      copie[selectedDate][coiffeur].push(heure);
+
+      return copie;
     });
+
     setStep(3);
-  };
+  }
 
   const monthYearLabel = new Date(currentYear, currentMonth).toLocaleString("fr-FR", {
     month: "long",
