@@ -3,74 +3,69 @@ import { Link } from 'react-router-dom';
 import styles from './Menu.module.css';
 
 export default function Menu() {
-  const burgerRef = useRef(null);
-  const navMenuRef = useRef(null);
-  const menubarRef = useRef(null);
-  const logoMenuRef = useRef(null);
+  let lastScroll = 0;
 
-  useEffect(() => {
-    const burger = burgerRef.current;
-    const navMenu = navMenuRef.current;
-    const menubar = menubarRef.current;
-    const logoMenu = logoMenuRef.current;
-
-    const toggleMenu = (e) => {
-      navMenu.classList.toggle(styles.open);
+    function ouvrirOuFermerMenu(e) {
+      if (navMenu.classList.contains(styles.open)) {
+        navMenu.classList.remove(styles.open);
+      } else {
+        navMenu.classList.add(styles.open);
+      }
       e.stopPropagation();
-    };
+    }
 
-    const closeMenu = () => {
-      navMenu.classList.remove(styles.open);
-    };
-
-    const handleDocumentClick = () => {
+    function fermerMenu() {
       if (navMenu.classList.contains(styles.open)) {
         navMenu.classList.remove(styles.open);
       }
-    };
+    }
 
-    const stopPropagation = (e) => e.stopPropagation();
-
-    const handleScroll = () => {
-      let current = window.scrollY;
-      menubar.style.transition = 'top 0.3s, background-color 0.3s';
-      if (current === 0) {
-        menubar.style.top = '0';
-        menubar.style.backgroundColor = '#fdecdd';
-        logoMenu.style.display = 'block';
-      } else if (current > lastScroll) {
-        menubar.style.top = '-100px';
-      } else {
-        menubar.style.top = '0';
-        menubar.style.backgroundColor = '#fdecdd';
-        logoMenu.style.display = 'block';
+    function cliquerDehors(e) {
+      if (navMenu.classList.contains(styles.open)) {
+        navMenu.classList.remove(styles.open);
       }
-      lastScroll = current;
-    };
+    }
 
-    let lastScroll = 0;
+    function empecherPropagation(e) {
+      e.stopPropagation();
+    }
 
-    burger.addEventListener('click', toggleMenu);
-    document.addEventListener('click', handleDocumentClick);
-    navMenu.addEventListener('click', stopPropagation);
+    function gererScroll() {
+      let positionActuelle = window.scrollY;
+      menubar.style.transition = 'top 0.3s, background-color 0.3s';
 
-    const links = navMenu.querySelectorAll('a');
-    links.forEach((link) => {
-      link.addEventListener('click', closeMenu);
+      if (positionActuelle === 0) {
+        menubar.style.top = '0';
+        menubar.style.backgroundColor = '#fdecdd';
+        logoMenu.style.display = 'block';
+      } else {
+        if (positionActuelle > lastScroll) {
+          menubar.style.top = '-100px';
+        } else {
+          menubar.style.top = '0';
+          menubar.style.backgroundColor = '#fdecdd';
+          logoMenu.style.display = 'block';
+        }
+      }
+
+      lastScroll = positionActuelle;
+    }
+
+    if (burger) {
+      burger.addEventListener('click', ouvrirOuFermerMenu);
+    }
+
+    if (navMenu) {
+      navMenu.addEventListener('click', empecherPropagation);
+    }
+
+    document.addEventListener('click', cliquerDehors);
+    window.addEventListener('scroll', gererScroll);
+
+    const tousLesLiens = navMenu.querySelectorAll('a');
+    tousLesLiens.forEach((lien) => {
+      lien.addEventListener('click', fermerMenu);
     });
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      burger.removeEventListener('click', toggleMenu);
-      document.removeEventListener('click', handleDocumentClick);
-      navMenu.removeEventListener('click', stopPropagation);
-      links.forEach((link) => {
-        link.removeEventListener('click', closeMenu);
-      });
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <nav className={styles.menubar} ref={menubarRef}>
