@@ -7,12 +7,15 @@ export default function Menu() {
   const navMenuRef = useRef(null);
   const menubarRef = useRef(null);
   const logoMenuRef = useRef(null);
+  const logoMenuTRef = useRef(null);
+
 
   useEffect(() => {
     const burger = burgerRef.current;
     const navMenu = navMenuRef.current;
     const menubar = menubarRef.current;
     const logoMenu = logoMenuRef.current;
+    const logoMenuT = logoMenuTRef.current;
 
     // quand on clique sur le burger
     const toggleMenu = (e) => {
@@ -39,16 +42,22 @@ export default function Menu() {
     const handleScroll = () => {
       let current = window.scrollY;
       menubar.style.transition = 'top 0.3s, background-color 0.3s';
-      if (current === 0) {
+
+      if (current === 0 || current < lastScroll) {
         menubar.style.top = '0';
         menubar.style.backgroundColor = '#fdecdd';
-        logoMenu.style.display = 'block';
-      } else if (current > lastScroll) {
+
+        if (screenWidth <= 1118) {
+          logoMenuT.current.style.display = 'block';
+          logoMenu.current.style.display = 'none';
+        } else {
+          logoMenu.current.style.display = 'block';
+          logoMenuT.current.style.display = 'none';
+        }
+
+      } 
+      else {
         menubar.style.top = '-100px';
-      } else {
-        menubar.style.top = '0';
-        menubar.style.backgroundColor = '#fdecdd';
-        logoMenu.style.display = 'block';
       }
       lastScroll = current;
     };
@@ -82,7 +91,7 @@ export default function Menu() {
     <nav className={styles.menubar} ref={menubarRef}>
       <Link to="/">
         <img className={styles.logoMenu} ref={logoMenuRef} src="/img/logo.png" alt="Logo" />
-        <img className={styles.logoMenuT} src="/img/logopn.png" alt="Logo" />
+        <img className={styles.logoMenuT} ref={logoMenuTRef} src="/img/logopn.png" alt="Logo" />
       </Link>
 
       <div className={styles.burger} ref={burgerRef}>
