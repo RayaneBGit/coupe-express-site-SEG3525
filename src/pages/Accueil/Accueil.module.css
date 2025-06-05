@@ -211,13 +211,10 @@ h1 {
   .msgBienv{
     text-align: center;
     padding-right: 0%;
+    font-size: 0.5em;
   }
   h2{
     font-size: 1.2em;
-  }
-  p{
-    font-size: 0.4em;
-    margin-bottom: 50px;
   }
   .equipe {
     border-radius: 15px;
@@ -228,6 +225,6 @@ h1 {
     justify-content: space-between;
   }
   h1{
-    font-size: 1em;
+    font-size: 4.2vw;
   }
 }

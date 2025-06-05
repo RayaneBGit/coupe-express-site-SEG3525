@@ -82,7 +82,7 @@ export default function Menu() {
     <nav className={styles.menubar} ref={menubarRef}>
       <Link to="/">
         <img className={styles.logoMenu} ref={logoMenuRef} src="/img/logo.png" alt="Logo" />
-        <img className={styles.logoMenuT} ref={logoMenuRef} src="/img/logopn.png" alt="Logo" />
+        <img className={styles.logoMenuT} src="/img/logopn.png" alt="Logo" />
       </Link>
 
       <div className={styles.burger} ref={burgerRef}>
