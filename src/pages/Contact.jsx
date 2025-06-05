@@ -1,5 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Contact.module.css";
+import { db } from "../../server/firebase";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc,
+  query,
+  where,
+} from "firebase/firestore";
 
 export default function Contact() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -15,7 +25,10 @@ export default function Contact() {
   const [step, setStep] = useState(1);
   const [reservations, setReservations] = useState({});
   const [errors, setErrors] = useState({});
+  const [disponibilites, setDisponibilites] = useState([]);
+
   const today = new Date();
+  const todayString = today.toISOString().split("T")[0];
 
   const serviceCoiffeurs = {
     coiffure: ["Audrey", "Karim", "Catherine", "Julie", "Lucie"],
@@ -23,52 +36,94 @@ export default function Contact() {
     rallonges: ["Audrey", "Julie", "Lucie"],
   };
 
-  const getTimeSlots = () => {
+  useEffect(() => {
+    async function fetchDisponibilites() {
+      const dispoSnapshot = await getDocs(collection(db, "disponibilites"));
+      const dispo = dispoSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setDisponibilites(dispo);
+    }
+
+    fetchDisponibilites();
+  }, []);
+
+  async function generateDisponibilites() {
+    const services = Object.keys(serviceCoiffeurs);
+    const slots = getTimeSlots();
+    const dateStr = today.toISOString().split("T")[0];
+
+    for (let service of services) {
+      for (let coiffeur of serviceCoiffeurs[service]) {
+        for (let heure of slots) {
+          await addDoc(collection(db, "disponibilites"), {
+            date: dateStr,
+            heure,
+            service,
+            coiffeur,
+          });
+        }
+      }
+    }
+  }
+
+  async function supprimerDisponibilitesDuJour() {
+    const q = query(collection(db, "disponibilites"), where("date", "==", todayString));
+    const snapshot = await getDocs(q);
+    snapshot.forEach(async (docu) => {
+      await deleteDoc(doc(db, "disponibilites", docu.id));
+    });
+  }
+
+  async function supprimerChoix(date, heure, service, coiffeur) {
+    const q = query(
+      collection(db, "disponibilites"),
+      where("date", "==", date),
+      where("heure", "==", heure),
+      where("service", "==", service),
+      where("coiffeur", "==", coiffeur)
+    );
+
+    const snapshot = await getDocs(q);
+    snapshot.forEach(async (docu) => {
+      await deleteDoc(doc(db, "disponibilites", docu.id));
+    });
+  }
+
+  function getTimeSlots() {
     const heuresDisponibles = [];
     let heure = 9;
 
     while (heure <= 17) {
-      let heureTexte = heure.toString();
-      if (heureTexte.length < 2) {
-        heureTexte = "0" + heureTexte;
-      }
+      let heureTexte = heure.toString().padStart(2, "0");
       heuresDisponibles.push(heureTexte + ":00");
       if (heure !== 17) {
         heuresDisponibles.push(heureTexte + ":30");
       }
-      heure = heure + 1;
+      heure++;
     }
 
     return heuresDisponibles;
-  };
-
-
-  function updateHeures() {
-    if (selectedDate === null || coiffeur === "") {
-      return [];
-    }
-
-    const reserved = reservations[selectedDate];
-    let dejaPris = [];
-
-    if (reserved && reserved[coiffeur]) {
-      dejaPris = reserved[coiffeur];
-    }
-    const toutesLesHeures = getTimeSlots();
-    const heuresLibres = [];
-
-    for (let i = 0; i < toutesLesHeures.length; i++) {
-      const h = toutesLesHeures[i];
-      if (!dejaPris.includes(h)) {
-        heuresLibres.push(h);
-      }
-    }
-    return heuresLibres;
   }
 
-  const handleDateClick = (date) => {
-    setSelectedDate(date);
-  };
+  function updateHeures() {
+    if (!selectedDate || !coiffeur || !service) return [];
+    return disponibilites
+      .filter(
+        (d) =>
+          d.date === selectedDate &&
+          d.coiffeur === coiffeur &&
+          d.service === service
+      )
+      .map((d) => d.heure);
+  }
+
+  async function handleSubmitStep2() {
+    const estValide = validateStep2();
+    if (!estValide) return;
+
+    await supprimerChoix(selectedDate, heure, service, coiffeur);
+    await supprimerDisponibilitesDuJour();
+    setStep(3);
+  }
 
   function generateCalendarDays() {
     const jours = [];
