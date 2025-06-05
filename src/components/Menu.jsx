@@ -41,24 +41,27 @@ export default function Menu() {
     // quand on scrolle la page
     const handleScroll = () => {
       let current = window.scrollY;
+      const screenWidth = window.innerWidth;
+
       menubar.style.transition = 'top 0.3s, background-color 0.3s';
 
       if (current === 0 || current < lastScroll) {
         menubar.style.top = '0';
         menubar.style.backgroundColor = '#fdecdd';
 
+        // afficher le bon logo selon la taille d'écran
         if (screenWidth <= 1118) {
-          logoMenuT.current.style.display = 'block';
-          logoMenu.current.style.display = 'none';
+          logoMenuTRef.current.style.display = 'block';
+          logoMenuRef.current.style.display = 'none';
         } else {
-          logoMenu.current.style.display = 'block';
-          logoMenuT.current.style.display = 'none';
+          logoMenuRef.current.style.display = 'block';
+          logoMenuTRef.current.style.display = 'none';
         }
 
-      } 
-      else {
+      } else {
         menubar.style.top = '-100px';
       }
+
       lastScroll = current;
     };
 
