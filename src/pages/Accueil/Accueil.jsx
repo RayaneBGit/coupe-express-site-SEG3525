@@ -6,7 +6,7 @@ export default function Accueil() {
   return (
     <div>
       {/* Section Accueil */}
-      <div className={styles.sectionAcc} style={{ backgroundImage: "url('/img/salon_boreal_accueil_page.jpg')"}} id="section1"></div>
+      <div className={styles.sectionAcc} style={{ backgroundImage: "url('/img/lorealnb.jpg')"}} id="section1"></div>
 
       {/* Section Services */}
       <div className={styles.sectionService} id="section2">
