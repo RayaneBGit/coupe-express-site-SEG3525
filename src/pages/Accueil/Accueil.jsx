@@ -6,14 +6,14 @@ export default function Accueil() {
   return (
     <div>
       {/* Section Accueil */}
-      <div className={styles.sectionAcc} style={{ backgroundImage: "url('/img/lorealnb.jpg')"}} id="section1"></div>
+      <div className={styles.sectionAcc} style={{ backgroundImage: "url('/img/salon_boreal_accueil_page.jpg')"}} id="section1"></div>
 
       {/* Section Services */}
       <div className={styles.sectionService} id="section2">
         <h1>- Notre offre de service -</h1>
         <br />
         <div className={styles.serviceContainer}>
-          <div className={styles.service} style={{ backgroundImage: "url('/img/Coiffure.jpg')" }}>
+          <div className={styles.service} style={{ backgroundImage: "url('/img/coiffure_page_accueil.jpg')" }}>
             <a href="/services"><h3>Coiffure & coupe de cheveux</h3></a>
           </div>
           <div className={styles.service} style={{ backgroundImage: "url('/img/Coloration.jpg')" }}>
