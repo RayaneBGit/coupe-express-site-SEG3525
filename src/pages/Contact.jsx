@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from '@emailjs/browser';
 import styles from "./Contact.module.css";
 
 export default function Contact() {
@@ -200,7 +201,26 @@ export default function Contact() {
       return copie;
     });
 
-    setStep(3);
+    emailjs.send(
+      "service_lyes3hu",  
+      "template_339nhsw", 
+      {
+        nom,
+        courriel,
+        tel,
+        service,
+        coiffeur,
+        heure,
+        date: selectedDate
+      },
+      "DQZYJudiVktSKROAZ"  
+    ).then(() => {
+      setStep(3);
+    }).catch((error) => {
+      alert("Erreur lors de l'envoi du courriel.");
+      console.error(error);
+    });
+
   }
 
   const monthYearLabel = new Date(currentYear, currentMonth).toLocaleString("fr-FR", {
