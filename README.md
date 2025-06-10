@@ -24,6 +24,7 @@
 - [x] Tous les 2 → On s’est assurés qu’ils étaient bien clairs
 
 ### 🌐 Site web  
+- [x] Rayane → A créé le site web et fais des pages avec des structures primitives (accueil, menu, sections)
 - [x] Nicola → A fait la mise en page principale (accueil, menu, sections)  
 - [x] Nicola → A choisi les couleurs, les images et a intégré les textes  
 - [x] Nicola → Testé le site ensemble et fait des ajustements
